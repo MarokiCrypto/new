@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>maroki.crypto - منصة موحدة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --main-green: #0a4010;
+      --light-green: #00cc66;
+      --hover-green: #00e676;
+      --dark-yellow: #d6ff00;
+      --gray-bg: #f2f2f2;
+      --gray-border: #ccc;
+      --white: #fff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+      background: var(--gray-bg);
+      color: #222;
+    }
+
+    nav {
+      background: var(--main-green);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 12px 5px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    nav a {
+      color: var(--dark-yellow);
+      text-decoration: none;
+      margin: 5px 8px;
+      padding: 10px;
+      font-size: 22px;
+      border-radius: 50%;
+      background: rgba(214, 255, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: var(--dark-yellow);
+      color: #000;
+    }
+
+    .intro {
+      background: url('https://i.postimg.cc/yxRvzKBF/6c2738df-27b0-4e25-a613-60c45c7c34fa.jpg') center/cover no-repeat;
+      text-align: right;
+      padding: 60px 20px 40px;
+      color: #111;
+    }
+
+    .intro img {
+      width: 100px;
+      margin-bottom: 15px;
+    }
+
+    .intro h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #000;
+    }
+
+    .intro p {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+
+    .stars {
+      font-size: 22px;
+      margin: 15px 0;
+      color: #fbc02d;
+    }
+
+    .clients {
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .comment-box {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 10px;
+      padding: 15px;
+      max-width: 500px;
+      margin: 20px auto;
+      font-size: 14px;
+      color: #000;
+    }
+
+    .icon-animated {
+      display: inline-block;
+      animation: bounce 1.5s infinite;
+      font-size: 28px;
+      margin: 20px 10px 0;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    #live-prices {
+      background: #007f3f;
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .section {
+      padding: 50px 20px;
+      border-bottom: 1px solid var(--gray-border);
+      background: #f9f9f9;
+    }
+
+    .section h2 {
+      color: #007f3f;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form-box {
+      max-width: 500px;
+      margin: auto;
+      background: var(--white);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid var(--gray-border);
+    }
+
+    .form-box select,
+    .form-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #999;
+      background: #fafafa;
+      color: #000;
+    }
+
+    .form-box button {
+      width: 100%;
+      background: var(--light-green);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .form-box button:hover {
+      background: var(--hover-green);
+    }
+
+    .client-name {
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#crypto"><i class="fas fa-coins"></i></a>
+    <a href="#bets"><i class="fas fa-dice"></i></a>
+    <a href="#banks"><i class="fas fa-university"></i></a>
+    <a href="#wallets"><i class="fas fa-wallet"></i></a>
+    <a href="#mobile"><i class="fas fa-mobile-alt"></i></a>
+    <a href="#p2p"><i class="fas fa-handshake"></i></a>
+    <a href="#offers"><i class="fas fa-gift"></i></a>
+    <a href="#about"><i class="fas fa-info-circle"></i></a>
+  </nav>
+
+  <div class="intro">
+    <img src="https://i.ibb.co/dQzqKVT/logo-goldcrypto.png" alt="logo" />
+    <h1>مرحباً بك في maroki.crypto</h1>
+    <p>منصة موحدة لشحن وسحب العملات، البنوك، المراهنات والتعبئة</p>
+    <p>خدمة سريعة، موثوقة، وآمنة 100%</p>
+    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+    <p>+2000 عميل سعيد • تقييم ممتاز في واتساب</p>
+    <div class="clients">عملاؤنا: ياسين، فاطمة، خالد، ندى، سفيان، سارة، محمد، زينب</div>
+    <div class="comment-box">"أفضل منصة تعاملت معها! سرعة، احترافية، وأمان تام. أنصح بها بشدة 💚"</div>
+    <div style="text-align:center">
+      <i class="fas fa-arrow-up icon-animated" style="color: #00cc66;"></i>
+      <i class="fas fa-arrow-down icon-animated" style="color: #e53935;"></i>
+    </div>
+  </div>
+
+  <div id="live-prices">⏳ تحميل أسعار العملات...</div>
+
+  <div class="section" id="crypto">
+    <h2><i class="fas fa-coins"></i> العملات الرقمية - شحن / سحب / تبديل</h2>
+    <div class="form-box">
+      <input type="text" placeholder="اسمك الكامل" id="crypto-name" />
+      <select id="crypto-type">
+        <option>اختر نوع العملية</option>
+        <option>شحن</option>
+        <option>سحب</option>
+        <option>تبديل</option>
+      </select>
+      <select id="crypto-currency">
+        <option>اختر العملة</option>
+        <option>USDT</option><option>BTC</option><option>ETH</option><option>BNB</option><option>TRX</option><option>XRP</option><option>DOGE</option>
+      </select>
+      <input type="number" placeholder="أدخل المبلغ" id="crypto-amount" />
+      <select id="crypto-amount-currency">
+        <option>عملة المبلغ</option>
+        <option>MAD</option><option>USD</option><option>EUR</option>
+      </select>
+      <input type="text" placeholder="عنوان المحفظة أو الحساب" id="crypto-wallet" />
+      <button onclick="sendCryptoToWhatsapp()">تنفيذ</button>
+    </div>
+  </div>
+  <div class="section" id="bets">
+    <h2><i class="fas fa-dice"></i> مواقع المراهنات</h2>
+    <div class="form-box">
+      <input type="text" placeholder="اسمك الكامل" id="bets-name" />
+      <select id="bets-type">
+        <option>نوع العملية</option>
+        <option>شحن</option>
+        <option>سحب</option>
+      </select>
+      <select id="bets-platform">
+        <option>اختر المنصة</option>
+        <option>1xBet</option><option>Melbet</option><option>Bet365</option><option>Betway</option>
+      </select>
+      <input type="number" placeholder="المبلغ" id="bets-amount" />
+      <select id="bets-currency">
+        <option>عملة المبلغ</option>
+        <option>MAD</option><option>USD</option>
+      </select>
+      <input type="text" placeholder="ID المنصة" id="bets-id" />
+      <button onclick="sendBetsToWhatsapp()">تنفيذ</button>
+    </div>
+  </div>
+
+  <div class="section" id="banks">
+    <h2><i class="fas fa-university"></i> البنوك والبلوكرز</h2>
+    <div class="form-box">
+      <input type="text" placeholder="اسمك الكامل" id="bank-name" />
+      <select id="bank-type">
+        <option>نوع العملية</option>
+        <option>شحن</option><option>سحب</option>
+      </select>
+      <select id="bank-service">
+        <option>اختر المنصة أو الخدمة</option>
+        <optgroup label="منصات تداول العملات الرقمية">
+          <option>Binance ⇄ CIH</option>
+          <option>Bybit ⇄ Attijari</option>
+          <option>Exness ⇄ CIH</option>
+          <option>XM ⇄ CIH</option>
+          <option>OKX ⇄ CIH</option>
+          <option>KuCoin ⇄ Attijari</option>
+          <option>MEXC ⇄ CIH</option>
+          <option>Bitget ⇄ CIH</option>
+          <option>Kraken ⇄ CIH</option>
+          <option>Huobi ⇄ CIH</option>
+        </optgroup>
+        <optgroup label="محافظ مالية دولية">
+          <option>PayPal ⇄ CIH</option>
+          <option>PayPal ⇄ Attijari</option>
+          <option>Payoneer ⇄ CIH</option>
+          <option>Paysera ⇄ CIH</option>
+          <option>Payeer ⇄ CIH</option>
+          <option>Skrill ⇄ CIH</option>
+          <option>Neteller ⇄ CIH</option>
+          <option>Perfect Money ⇄ CIH</option>
+          <option>Advcash ⇄ CIH</option>
+          <option>Wise ⇄ CIH</option>
+          <option>Pyypl ⇄ CIH</option>
+        </optgroup>
+      </select>
+      <input type="number" placeholder="المبلغ" id="bank-amount" />
+      <select id="bank-currency">
+        <option>عملة المبلغ</option>
+        <option>MAD</option><option>USD</option><option>EUR</option>
+      </select>
+      <input type="text" placeholder="البريد الإلكتروني أو الحساب" id="bank-account" />
+      <button onclick="sendBanksToWhatsapp()">ابدأ التحويل</button>
+    </div>
+  </div>
+
+  <div class="section" id="wallets">
+    <h2><i class="fas fa-wallet"></i> المحافظ الرقمية</h2>
+    <div class="form-box">
+      <input type="text" placeholder="اسمك الكامل" id="wallet-name" />
+      <select id="wallet-type">
+        <option>نوع العملية</option>
+        <option>شحن</option>
+        <option>سحب</option>
+      </select>
+      <select id="wallet-service">
+        <option>اختر المحفظة</option>
+        <option>PayPal</option>
+        <option>Payoneer</option>
+        <option>Paysera</option>
+        <option>Skrill</option>
+        <option>Neteller</option>
+        <option>Payeer</option>
+        <option>Perfect Money</option>
+        <option>Wise</option>
+        <option>Advcash</option>
+        <option>Pyypl</option>
+      </select>
+      <input type="number" placeholder="المبلغ" id="wallet-amount" />
+      <select id="wallet-currency">
+        <option>عملة المبلغ</option>
+        <option>MAD</option>
+        <option>USD</option>
+        <option>EUR</option>
+      </select>
+      <input type="text" placeholder="البريد أو رقم الحساب" id="wallet-account" />
+      <button onclick="sendWalletToWhatsapp()">تنفيذ العملية</button>
+    </div>
+  </div>
+  <div class="section" id="mobile">
+    <h2><i class="fas fa-mobile-alt"></i> تعبئة الهاتف</h2>
+    <div class="form-box">
+      <input type="text" placeholder="اسمك الكامل" id="mobile-name" />
+      <select id="mobile-operator">
+        <option>اختر الشركة</option>
+        <option>Inwi</option><option>Orange</option><option>IAM</option>
+      </select>
+      <input type="number" placeholder="رقم الهاتف" id="mobile-number" />
+      <input type="number" placeholder="قيمة التعبئة" id="mobile-value" />
+      <button onclick="sendMobileToWhatsapp()">شحن الرصيد</button>
+    </div>
+  </div>
+
+  <div class="section" id="p2p">
+    <h2><i class="fas fa-handshake"></i> سوق P2P</h2>
+    <div class="form-box">
+      <input type="text" placeholder="اسمك الكامل" id="p2p-name" />
+      <select id="p2p-type">
+        <option>نوع العملية</option>
+        <option>شراء</option><option>بيع</option>
+      </select>
+      <select id="p2p-coin">
+        <option>العملة</option>
+        <option>USDT</option><option>BTC</option><option>ETH</option>
+      </select>
+      <input type="number" placeholder="المبلغ" id="p2p-amount" />
+      <select id="p2p-currency">
+        <option>عملة المبلغ</option>
+        <option>MAD</option><option>USD</option>
+      </select>
+      <input type="text" placeholder="وسيلة التواصل (واتساب، تيليغرام...)" id="p2p-contact" />
+      <button onclick="sendP2PToWhatsapp()">ابدأ الصفقة</button>
+    </div>
+  </div>
+
+  <!-- إشعار التأكيد + الصوت -->
+  <audio id="confirmation-sound" src="https://www.myinstants.com/media/sounds/click.mp3" preload="auto"></audio>
+  <div id="confirmation-message" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #4caf50; color: white; padding: 12px 20px; border-radius: 8px; font-size: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 9999;">
+    ✅ تم فتح واتساب، تابع إرسال الطلب من هناك 📲
+  </div>
+
+  <div class="section" id="about">
+    <h2><i class="fas fa-info-circle"></i> من نحن</h2>
+    <div style="max-width: 600px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); line-height: 1.8;">
+      <p><strong>maroki.crypto</strong> هي منصة موحدة تقدم خدمات شحن وسحب العملات الرقمية، تحويلات البنوك، المحافظ، تعبئة الهاتف، وتحويلات P2P.</p>
+      <ul style="padding-right: 20px; list-style: disc; color: #00a14b;">
+        <li>أمان تام وسرعة في التنفيذ</li>
+        <li>خدمة عملاء متوفرة 24/7 عبر واتساب</li>
+        <li>أكثر من 2000 عميل موثوق</li>
+        <li>دعم لجميع العملات والمنصات والبنوك المغربية والدولية</li>
+      </ul>
+      <div style="margin-top: 20px; text-align: center;">
+        <a href="https://wa.me/212713041921" style="background: #25D366; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+          راسلنا الآن على واتساب
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer id="offers" style="text-align:center; padding: 20px; background:#0a4010; color:#fff; font-size:14px;">
+    <p>جميع الحقوق محفوظة ©️ maroki.crypto 2025</p>
+    <p>
+      <a href="https://wa.me/212713041921" style="color: #fff; margin: 0 10px;"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/ayoube_betting" style="color: #fff; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+      <a href="https://t.me/groupayoub" style="color: #fff; margin: 0 10px;"><i class="fab fa-telegram"></i></a>
+    </p>
+  </footer>
+  <script>
+    // جلب أسعار العملات كل 30 ثانية
+    async function fetchPrices() {
+      try {
+        const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=tether,bitcoin,ethereum&vs_currencies=mad");
+        const data = await res.json();
+        const usdt = data.tether.mad.toFixed(2);
+        const btc = data.bitcoin.mad.toLocaleString();
+        const eth = data.ethereum.mad.toLocaleString();
+        document.getElementById("live-prices").innerHTML = `
+          💰 أسعار حية:
+          <span style="color:#fff200">USDT:</span> ${usdt} MAD |
+          <span style="color:#fff200">BTC:</span> ${btc} MAD |
+          <span style="color:#fff200">ETH:</span> ${eth} MAD
+        `;
+      } catch (e) {
+        document.getElementById("live-prices").innerText = "❌ فشل تحميل الأسعار.";
+      }
+    }
+
+    fetchPrices();
+    setInterval(fetchPrices, 30000);
+
+    // عرض إشعار تأكيد + تشغيل صوت + فتح واتساب
+    function openWhatsAppMessage(msg) {
+      const encoded = encodeURIComponent(msg);
+      window.open(`https://wa.me/212713041921?text=${encoded}`, "_blank");
+
+      const msgBox = document.getElementById("confirmation-message");
+      const audio = document.getElementById("confirmation-sound");
+
+      msgBox.style.display = "block";
+      audio.play();
+      setTimeout(() => {
+        msgBox.style.display = "none";
+      }, 4000);
+    }
+
+    // دالة مساعدة لفحص الحقول
+    function isEmpty(...fields) {
+      return fields.some(field => !field || field.trim() === "");
+    }
+
+    // العملات الرقمية
+    function sendCryptoToWhatsapp() {
+      const name = document.getElementById("crypto-name").value;
+      const type = document.getElementById("crypto-type").value;
+      const currency = document.getElementById("crypto-currency").value;
+      const amount = document.getElementById("crypto-amount").value;
+      const amountCurrency = document.getElementById("crypto-amount-currency").value;
+      const wallet = document.getElementById("crypto-wallet").value;
+
+      if (isEmpty(name, type, currency, amount, amountCurrency, wallet)) return alert("يرجى ملء جميع الحقول!");
+
+      const msg = `💰 *طلب عملات رقمية من ${name}*\n- النوع: ${type}\n- العملة: ${currency}\n- المبلغ: ${amount} ${amountCurrency}\n- المحفظة/الحساب: ${wallet}`;
+      openWhatsAppMessage(msg);
+    }
+
+    // المراهنات
+    function sendBetsToWhatsapp() {
+      const name = document.getElementById("bets-name").value;
+      const type = document.getElementById("bets-type").value;
+      const platform = document.getElementById("bets-platform").value;
+      const amount = document.getElementById("bets-amount").value;
+      const currency = document.getElementById("bets-currency").value;
+      const id = document.getElementById("bets-id").value;
+
+      if (isEmpty(name, type, platform, amount, currency, id)) return alert("يرجى ملء جميع الحقول!");
+
+      const msg = `🎲 *طلب مراهنات من ${name}*\n- النوع: ${type}\n- المنصة: ${platform}\n- المبلغ: ${amount} ${currency}\n- ID: ${id}`;
+      openWhatsAppMessage(msg);
+    }
+
+    // البنوك والبلوكرز
+    function sendBanksToWhatsapp() {
+      const name = document.getElementById("bank-name").value;
+      const type = document.getElementById("bank-type").value;
+      const service = document.getElementById("bank-service").value;
+      const amount = document.getElementById("bank-amount").value;
+      const currency = document.getElementById("bank-currency").value;
+      const email = document.getElementById("bank-account").value;
+
+      if (isEmpty(name, type, service, amount, currency, email)) return alert("يرجى ملء جميع الحقول!");
+
+      const msg = `🏦 *طلب تحويل بنكي من ${name}*\n- النوع: ${type}\n- الخدمة: ${service}\n- المبلغ: ${amount} ${currency}\n- الحساب/البريد: ${email}`;
+      openWhatsAppMessage(msg);
+    }
+
+    // المحافظ الرقمية
+    function sendWalletToWhatsapp() {
+      const name = document.getElementById("wallet-name").value;
+      const type = document.getElementById("wallet-type").value;
+      const service = document.getElementById("wallet-service").value;
+      const amount = document.getElementById("wallet-amount").value;
+      const currency = document.getElementById("wallet-currency").value;
+      const account = document.getElementById("wallet-account").value;
+
+      if (isEmpty(name, type, service, amount, currency, account)) {
+        return alert("يرجى ملء جميع الحقول!");
+      }
+
+      const msg = `🪙 *طلب محفظة رقمية من ${name}*\n- النوع: ${type}\n- المحفظة: ${service}\n- المبلغ: ${amount} ${currency}\n- الحساب: ${account}`;
+      openWhatsAppMessage(msg);
+    }
+
+    // تعبئة الهاتف
+    function sendMobileToWhatsapp() {
+      const name = document.getElementById("mobile-name").value;
+      const operator = document.getElementById("mobile-operator").value;
+      const number = document.getElementById("mobile-number").value;
+      const value = document.getElementById("mobile-value").value;
+
+      if (isEmpty(name, operator, number, value)) return alert("يرجى ملء جميع الحقول!");
+
+      const msg = `📱 *طلب تعبئة هاتف من ${name}*\n- الشركة: ${operator}\n- الرقم: ${number}\n- التعبئة: ${value} MAD`;
+      openWhatsAppMessage(msg);
+    }
+
+    // سوق P2P
+    function sendP2PToWhatsapp() {
+      const name = document.getElementById("p2p-name").value;
+      const type = document.getElementById("p2p-type").value;
+      const coin = document.getElementById("p2p-coin").value;
+      const amount = document.getElementById("p2p-amount").value;
+      const currency = document.getElementById("p2p-currency").value;
+      const contact = document.getElementById("p2p-contact").value;
+
+      if (isEmpty(name, type, coin, amount, currency, contact)) return alert("يرجى ملء جميع الحقول!");
+
+      const msg = `🤝 *صفقة P2P من ${name}*\n- النوع: ${type}\n- العملة: ${coin}\n- المبلغ: ${amount} ${currency}\n- التواصل: ${contact}`;
+      openWhatsAppMessage(msg);
+    }
+  </script>
+</body>
+</html>
