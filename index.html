@@ -7,381 +7,308 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    :root {
-      --main-green: #0a4010;
-      --light-green: #00cc66;
-      --hover-green: #00e676;
-      --dark-yellow: #d6ff00;
-      --gray-bg: #f2f2f2;
-      --gray-border: #ccc;
-      --white: #fff;
+    :root{
+      --main-green:#0a4010;--light-green:#00cc66;--hover-green:#00e676;--dark-yellow:#d6ff00;
+      --gray-bg:#f2f2f2;--gray-border:#ddd;--white:#fff;--text:#1c1c1c;--danger:#e53935
     }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: 'Tajawal', sans-serif;
-      background: var(--gray-bg);
-      color: #222;
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:'Tajawal',sans-serif;background:var(--gray-bg);color:var(--text)}
+    /* Nav */
+    nav{
+      background:var(--main-green);display:flex;justify-content:center;flex-wrap:wrap;gap:10px;
+      padding:10px 5px;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.2)
     }
-
-    nav {
-      background: var(--main-green);
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px 5px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      gap: 10px;
+    nav a{
+      color:#fff;text-decoration:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+      background:rgba(255,255,255,.08);border-radius:12px;font-size:20px;transition:transform .15s,background .3s,color .3s
     }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      font-size: 20px;
-      transition: background 0.3s;
+    nav a:hover{background:var(--dark-yellow);color:#000;transform:translateY(-2px)}
+    /* Intro */
+    .intro{
+      background:url('https://i.postimg.cc/yxRvzKBF/6c2738df-27b0-4e25-a613-60c45c7c34fa.jpg') center/cover no-repeat;
+      text-align:right;padding:60px 20px 40px;color:#111;border-bottom:1px solid var(--gray-border)
     }
-
-    nav a:hover {
-      background: var(--dark-yellow);
-      color: #000;
+    .intro img{width:100px;margin-bottom:15px}
+    .intro h1{font-size:30px;margin:0 0 10px;color:#000}
+    .intro p{font-size:16px;margin:8px 0}
+    .stars{font-size:20px;margin:15px 0;color:#fbc02d}
+    .clients{font-weight:bold;margin:10px 0;font-size:14px}
+    .comment-box{
+      background:var(--white);border:1px solid var(--gray-border);border-radius:10px;padding:15px;max-width:520px;margin:20px 0;font-size:14px;color:#000
     }
-
-    .section {
-      padding: 40px 15px;
-      background: #fff;
-      border-bottom: 1px solid var(--gray-border);
+    .icon-animated{display:inline-block;animation:bounce 1.5s infinite;font-size:28px;margin:20px 10px 0}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    /* Live prices */
+    #live-prices{
+      background:#0f6c45;text-align:center;padding:12px;font-weight:bold;color:#fff;position:sticky;top:64px;z-index:900
     }
-
-    .section h2 {
-      color: var(--main-green);
-      font-size: 20px;
-      text-align: center;
-      margin-bottom: 25px;
+    /* Sections */
+    .section{padding:40px 15px;background:#fff;border-bottom:1px solid var(--gray-border)}
+    .section h2{color:var(--main-green);font-size:20px;text-align:center;margin:0 0 25px}
+    .form-box{
+      max-width:520px;margin:auto;background:#fafafa;border:1px solid var(--gray-border);border-radius:14px;padding:20px
     }
-
-    .form-box {
-      max-width: 500px;
-      margin: auto;
-      background: #fafafa;
-      border: 1px solid var(--gray-border);
-      border-radius: 12px;
-      padding: 20px;
+    .row{display:grid;grid-template-columns:1fr;gap:14px}
+    .form-box input,.form-box select{
+      width:100%;padding:12px;font-size:15px;border-radius:10px;border:1px solid #cfcfcf;background:#fff;color:#000;outline:none
     }
-
-    .form-box input,
-    .form-box select {
-      width: 100%;
-      padding: 12px;
-      font-size: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      background: #fff;
-      color: #000;
+    .form-box input:focus,.form-box select:focus{border-color:#8cd0a4;box-shadow:0 0 0 3px rgba(0,204,102,.15)}
+    .form-box button{
+      width:100%;background:var(--light-green);color:#fff;padding:14px;font-size:16px;border:none;border-radius:10px;
+      cursor:pointer;transition:filter .2s,transform .08s
     }
-
-    .form-box button {
-      width: 100%;
-      background: var(--light-green);
-      color: white;
-      padding: 14px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s ease;
+    .form-box button:hover{filter:brightness(1.05)}
+    .form-box button:active{transform:translateY(1px)}
+    .btn--loading{position:relative;pointer-events:none;opacity:.85}
+    .btn--loading::after{
+      content:"";position:absolute;inset:auto 50% 50% auto;transform:translate(50%,-50%);width:18px;height:18px;border:2px solid #fff;border-top-color:transparent;border-radius:50%;
+      animation:spin .8s linear infinite
     }
-
-    .form-box button:hover {
-      background: var(--hover-green);
+    @keyframes spin{to{transform:translate(50%,-50%) rotate(360deg)}}
+    .hint{font-size:12px;color:#666;margin:-6px 2px 8px}
+    .error{color:var(--danger);font-size:13px;display:none;margin:-6px 2px 8px}
+    .show{display:block}
+    /* Footer */
+    footer{background:var(--main-green);color:#fff;text-align:center;padding:20px;font-size:14px}
+    footer a{color:#fff;margin:0 10px;font-size:18px}
+    /* Responsive */
+    @media (max-width:600px){
+      nav a{width:40px;height:40px;font-size:18px}
+      .section h2{font-size:18px}
+      .form-box{padding:16px}
     }
-
-    #live-prices {
-      background: #007f3f;
-      text-align: center;
-      padding: 12px;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    .intro {
-      background: url('https://i.postimg.cc/yxRvzKBF/6c2738df-27b0-4e25-a613-60c45c7c34fa.jpg') center/cover no-repeat;
-      text-align: right;
-      padding: 60px 20px 40px;
-      color: #111;
-    }
-
-    .intro img {
-      width: 100px;
-      margin-bottom: 15px;
-    }
-
-    .intro h1 {
-      font-size: 30px;
-      margin-bottom: 10px;
-      color: #000;
-    }
-
-    .intro p {
-      font-size: 16px;
-      margin: 8px 0;
-    }
-
-    .stars {
-      font-size: 20px;
-      margin: 15px 0;
-      color: #fbc02d;
-    }
-
-    .clients {
-      font-weight: bold;
-      margin: 10px 0;
-      font-size: 14px;
-    }
-
-    .comment-box {
-      background: var(--white);
-      border: 1px solid var(--gray-border);
-      border-radius: 10px;
-      padding: 15px;
-      max-width: 500px;
-      margin: 20px auto;
-      font-size: 14px;
-      color: #000;
-    }
-
-    .icon-animated {
-      display: inline-block;
-      animation: bounce 1.5s infinite;
-      font-size: 28px;
-      margin: 20px 10px 0;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    footer {
-      background: var(--main-green);
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-
-    footer a {
-      color: #fff;
-      margin: 0 10px;
-      font-size: 18px;
-    }
-
-    @media (max-width: 600px) {
-      nav a {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-
-      .form-box {
-        padding: 16px;
-      }
-
-      .section h2 {
-        font-size: 18px;
-      }
-    }
+    /* Accessibility helpers */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#crypto"><i class="fas fa-coins"></i></a>
-    <a href="#bets"><i class="fas fa-dice"></i></a>
-    <a href="#banks"><i class="fas fa-university"></i></a>
-    <a href="#wallets"><i class="fas fa-wallet"></i></a>
-    <a href="#mobile"><i class="fas fa-mobile-alt"></i></a>
-    <a href="#p2p"><i class="fas fa-handshake"></i></a>
-    <a href="#offers"><i class="fas fa-gift"></i></a>
-    <a href="#about"><i class="fas fa-info-circle"></i></a>
+  <!-- NAV -->
+  <nav aria-label="التنقل">
+    <a href="#crypto" aria-label="العملات الرقمية"><i class="fas fa-coins"></i></a>
+    <a href="#bets" aria-label="المراهنات"><i class="fas fa-dice"></i></a>
+    <a href="#banks" aria-label="البنوك"><i class="fas fa-university"></i></a>
+    <a href="#wallets" aria-label="المحافظ الرقمية"><i class="fas fa-wallet"></i></a>
+    <a href="#mobile" aria-label="تعبئة الهاتف"><i class="fas fa-mobile-alt"></i></a>
+    <a href="#p2p" aria-label="سوق P2P"><i class="fas fa-handshake"></i></a>
+    <a href="#offers" aria-label="العروض"><i class="fas fa-gift"></i></a>
+    <a href="#about" aria-label="من نحن"><i class="fas fa-info-circle"></i></a>
   </nav>
 
+  <!-- INTRO -->
   <div class="intro">
-    <img src="https://i.ibb.co/dQzqKVT/logo-goldcrypto.png" alt="logo" />
+    <img src="https://i.ibb.co/dQzqKVT/logo-goldcrypto.png" alt="شعار maroki.crypto" />
     <h1>مرحباً بك في maroki.crypto</h1>
     <p>منصة موحدة لشحن وسحب العملات، البنوك، المراهنات والتعبئة</p>
     <p>خدمة سريعة، موثوقة، وآمنة 100%</p>
-    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+    <div class="stars" aria-hidden="true">⭐️⭐️⭐️⭐️⭐️</div>
     <p>+2000 عميل سعيد • تقييم ممتاز في واتساب</p>
     <div class="clients">عملاؤنا: ياسين، فاطمة، خالد، ندى، سفيان، سارة، محمد، زينب</div>
     <div class="comment-box">"أفضل منصة تعاملت معها! سرعة، احترافية، وأمان تام. أنصح بها بشدة 💚"</div>
     <div style="text-align:center">
-      <i class="fas fa-arrow-up icon-animated" style="color: #00cc66;"></i>
-      <i class="fas fa-arrow-down icon-animated" style="color: #e53935;"></i>
+      <i class="fas fa-arrow-up icon-animated" style="color:#00cc66" aria-hidden="true"></i>
+      <i class="fas fa-arrow-down icon-animated" style="color:#e53935" aria-hidden="true"></i>
     </div>
   </div>
 
-  <div id="live-prices">⏳ تحميل أسعار العملات...</div>
+  <!-- LIVE PRICES -->
+  <div id="live-prices" role="status" aria-live="polite">⏳ تحميل أسعار العملات...</div>
 
+  <!-- CRYPTO -->
   <div class="section" id="crypto">
     <h2><i class="fas fa-coins"></i> العملات الرقمية - شحن / سحب / تبديل</h2>
-    <div class="form-box">
-      <input type="text" placeholder="اسمك الكامل" id="crypto-name" />
-      <select id="crypto-type">
-        <option>اختر نوع العملية</option>
-        <option>شحن</option>
-        <option>سحب</option>
-        <option>تبديل</option>
-      </select>
-      <select id="crypto-currency">
-        <option>اختر العملة</option>
-        <option>USDT</option><option>BTC</option><option>ETH</option><option>BNB</option><option>TRX</option><option>XRP</option><option>DOGE</option>
-      </select>
-      <input type="number" placeholder="أدخل المبلغ" id="crypto-amount" />
-      <select id="crypto-amount-currency">
-        <option>عملة المبلغ</option>
-        <option>MAD</option><option>USD</option><option>EUR</option>
-      </select>
-      <input type="text" placeholder="عنوان المحفظة أو الحساب" id="crypto-wallet" />
-      <button onclick="sendCryptoToWhatsapp()">تنفيذ</button>
-    </div>
+    <form class="form-box" onsubmit="sendCryptoToWhatsapp(event)" novalidate>
+      <div class="row">
+        <input id="crypto-name" name="name" placeholder="اسمك الكامل" autocomplete="name" required />
+        <div>
+          <select id="crypto-type" required>
+            <option value="" selected disabled>نوع العملية</option>
+            <option value="شحن">شحن</option>
+            <option value="سحب">سحب</option>
+            <option value="تبديل">تبديل</option>
+          </select>
+        </div>
+        <div>
+          <select id="crypto-currency" required>
+            <option value="" selected disabled>اختر العملة</option>
+            <option>USDT</option><option>BTC</option><option>ETH</option><option>BNB</option><option>TRX</option><option>XRP</option><option>DOGE</option>
+          </select>
+        </div>
+        <div>
+          <input id="crypto-amount" type="number" inputmode="decimal" min="1" step="0.01" placeholder="أدخل المبلغ" required />
+          <div class="hint">أدخل قيمة رقمية صحيحة</div>
+        </div>
+        <div>
+          <select id="crypto-amount-currency" required>
+            <option value="" selected disabled>عملة المبلغ</option>
+            <option>MAD</option><option>USD</option><option>EUR</option>
+          </select>
+        </div>
+        <input id="crypto-wallet" placeholder="عنوان المحفظة أو الحساب" required />
+        <!-- honeypot -->
+        <input type="text" id="hp1" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button id="crypto-btn" type="submit">تنفيذ</button>
+        <div id="crypto-error" class="error">يرجى ملء جميع الحقول بشكل صحيح.</div>
+      </div>
+    </form>
   </div>
+
   <audio id="confirmation-sound" src="https://www.myinstants.com/media/sounds/click.mp3" preload="auto"></audio>
   <div id="confirmation-message" style="display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#4caf50;color:#fff;padding:12px 20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:9999;">
     ✅ تم فتح واتساب، تابع إرسال الطلب من هناك
   </div>
 
+  <!-- BETS -->
   <div class="section" id="bets">
     <h2><i class="fas fa-dice"></i> مواقع المراهنات</h2>
-    <div class="form-box">
-      <input type="text" placeholder="اسمك الكامل" id="bets-name" />
-      <select id="bets-type">
-        <option>نوع العملية</option>
-        <option>شحن</option>
-        <option>سحب</option>
-      </select>
-      <select id="bets-platform">
-        <option>اختر المنصة</option>
-        <option>1xBet</option>
-        <option>Melbet</option>
-        <option>Bet365</option>
-        <option>Betway</option>
-        <option>Linbet</option>
-        <option>MegaPari</option>
-        <option>Goobet</option>
-      </select>
-      <input type="number" placeholder="المبلغ" id="bets-amount" />
-      <select id="bets-currency">
-        <option>عملة المبلغ</option>
-        <option>MAD</option><option>USD</option>
-      </select>
-      <input type="text" placeholder="ID المنصة" id="bets-id" />
-      <button onclick="sendBetsToWhatsapp()">تنفيذ</button>
-    </div>
+    <form class="form-box" onsubmit="sendBetsToWhatsapp(event)" novalidate>
+      <div class="row">
+        <input id="bets-name" placeholder="اسمك الكامل" autocomplete="name" required />
+        <select id="bets-type" required>
+          <option value="" selected disabled>نوع العملية</option>
+          <option>شحن</option><option>سحب</option>
+        </select>
+        <select id="bets-platform" required>
+          <option value="" selected disabled>اختر المنصة</option>
+          <option>1xBet</option><option>Melbet</option><option>Bet365</option><option>Betway</option><option>Linbet</option><option>MegaPari</option><option>Goobet</option>
+        </select>
+        <div>
+          <input id="bets-amount" type="number" inputmode="decimal" min="10" step="1" placeholder="المبلغ" required />
+          <div class="hint">الحد الأدنى 10</div>
+        </div>
+        <select id="bets-currency" required>
+          <option value="" selected disabled>عملة المبلغ</option>
+          <option>MAD</option><option>USD</option>
+        </select>
+        <input id="bets-id" placeholder="ID المنصة" required />
+        <!-- honeypot -->
+        <input type="text" id="hp2" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button id="bets-btn" type="submit">تنفيذ</button>
+        <div id="bets-error" class="error">يرجى ملء جميع الحقول بشكل صحيح.</div>
+      </div>
+    </form>
   </div>
 
+  <!-- BANKS -->
   <div class="section" id="banks">
     <h2><i class="fas fa-university"></i> البنوك والبلوكرز</h2>
-    <div class="form-box">
-      <input type="text" placeholder="اسمك الكامل" id="bank-name" />
-      <select id="bank-type">
-        <option>نوع العملية</option>
-        <option>شحن</option><option>سحب</option>
-      </select>
-      <select id="bank-service">
-        <option>اختر المنصة أو الخدمة</option>
-        <optgroup label="منصات تداول">
-          <option>Binance ⇄ CIH</option>
-          <option>Bybit ⇄ Attijari</option>
-        </optgroup>
-        <optgroup label="محافظ دولية">
-          <option>PayPal ⇄ CIH</option>
-          <option>Skrill ⇄ Attijari</option>
-          <option>Wise ⇄ CIH</option>
-        </optgroup>
-      </select>
-      <input type="number" placeholder="المبلغ" id="bank-amount" />
-      <select id="bank-currency">
-        <option>عملة المبلغ</option>
-        <option>MAD</option><option>USD</option><option>EUR</option>
-      </select>
-      <input type="text" placeholder="البريد أو الحساب البنكي" id="bank-account" />
-      <button onclick="sendBanksToWhatsapp()">ابدأ التحويل</button>
-    </div>
+    <form class="form-box" onsubmit="sendBanksToWhatsapp(event)" novalidate>
+      <div class="row">
+        <input id="bank-name" placeholder="اسمك الكامل" autocomplete="name" required />
+        <select id="bank-type" required>
+          <option value="" selected disabled>نوع العملية</option>
+          <option>شحن</option><option>سحب</option>
+        </select>
+        <select id="bank-service" required>
+          <option value="" selected disabled>اختر المنصة أو الخدمة</option>
+          <optgroup label="منصات تداول">
+            <option>Binance ⇄ CIH</option>
+            <option>Bybit ⇄ Attijari</option>
+          </optgroup>
+          <optgroup label="محافظ دولية">
+            <option>PayPal ⇄ CIH</option>
+            <option>Skrill ⇄ Attijari</option>
+            <option>Wise ⇄ CIH</option>
+          </optgroup>
+        </select>
+        <div>
+          <input id="bank-amount" type="number" inputmode="decimal" min="1" step="0.01" placeholder="المبلغ" required />
+        </div>
+        <select id="bank-currency" required>
+          <option value="" selected disabled>عملة المبلغ</option>
+          <option>MAD</option><option>USD</option><option>EUR</option>
+        </select>
+        <input id="bank-account" placeholder="البريد أو الحساب البنكي" required />
+        <!-- honeypot -->
+        <input type="text" id="hp3" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button id="banks-btn" type="submit">ابدأ التحويل</button>
+        <div id="banks-error" class="error">يرجى ملء جميع الحقول بشكل صحيح.</div>
+      </div>
+    </form>
   </div>
 
+  <!-- WALLETS -->
   <div class="section" id="wallets">
     <h2><i class="fas fa-wallet"></i> المحافظ الرقمية</h2>
-    <div class="form-box">
-      <input type="text" placeholder="اسمك الكامل" id="wallet-name" />
-      <select id="wallet-type">
-        <option>نوع العملية</option>
-        <option>شحن</option><option>سحب</option>
-      </select>
-      <select id="wallet-service">
-        <option>اختر المحفظة</option>
-        <option>PayPal</option>
-        <option>Skrill</option>
-        <option>Neteller</option>
-        <option>Wise</option>
-      </select>
-      <input type="number" placeholder="المبلغ" id="wallet-amount" />
-      <select id="wallet-currency">
-        <option>عملة المبلغ</option>
-        <option>MAD</option><option>USD</option><option>EUR</option>
-      </select>
-      <input type="text" placeholder="البريد أو الحساب" id="wallet-account" />
-      <button onclick="sendWalletToWhatsapp()">تنفيذ العملية</button>
-    </div>
+    <form class="form-box" onsubmit="sendWalletToWhatsapp(event)" novalidate>
+      <div class="row">
+        <input id="wallet-name" placeholder="اسمك الكامل" autocomplete="name" required />
+        <select id="wallet-type" required>
+          <option value="" selected disabled>نوع العملية</option>
+          <option>شحن</option><option>سحب</option>
+        </select>
+        <select id="wallet-service" required>
+          <option value="" selected disabled>اختر المحفظة</option>
+          <option>PayPal</option><option>Skrill</option><option>Neteller</option><option>Wise</option>
+        </select>
+        <div>
+          <input id="wallet-amount" type="number" inputmode="decimal" min="1" step="0.01" placeholder="المبلغ" required />
+        </div>
+        <select id="wallet-currency" required>
+          <option value="" selected disabled>عملة المبلغ</option>
+          <option>MAD</option><option>USD</option><option>EUR</option>
+        </select>
+        <input id="wallet-account" placeholder="البريد أو الحساب" required />
+        <!-- honeypot -->
+        <input type="text" id="hp4" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button id="wallet-btn" type="submit">تنفيذ العملية</button>
+        <div id="wallets-error" class="error">يرجى ملء جميع الحقول بشكل صحيح.</div>
+      </div>
+    </form>
   </div>
 
+  <!-- MOBILE -->
   <div class="section" id="mobile">
     <h2><i class="fas fa-mobile-alt"></i> تعبئة الهاتف</h2>
-    <div class="form-box">
-      <input type="text" placeholder="اسمك الكامل" id="mobile-name" />
-      <select id="mobile-operator">
-        <option>اختر الشركة</option>
-        <option>Inwi</option><option>Orange</option><option>IAM</option>
-      </select>
-      <input type="number" placeholder="رقم الهاتف" id="mobile-number" />
-      <input type="number" placeholder="قيمة التعبئة" id="mobile-value" />
-      <button onclick="sendMobileToWhatsapp()">شحن الرصيد</button>
-    </div>
+    <form class="form-box" onsubmit="sendMobileToWhatsapp(event)" novalidate>
+      <div class="row">
+        <input id="mobile-name" placeholder="اسمك الكامل" autocomplete="name" required />
+        <select id="mobile-operator" required>
+          <option value="" selected disabled>اختر الشركة</option>
+          <option>Inwi</option><option>Orange</option><option>IAM</option>
+        </select>
+        <input id="mobile-number" type="tel" inputmode="numeric" pattern="[0-9]{9,12}" placeholder="رقم الهاتف" required />
+        <input id="mobile-value" type="number" inputmode="decimal" min="5" step="1" placeholder="قيمة التعبئة (MAD)" required />
+        <!-- honeypot -->
+        <input type="text" id="hp5" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button id="mobile-btn" type="submit">شحن الرصيد</button>
+        <div class="hint">الرقم بدون فراغات. الحد الأدنى للتعبئة 5 MAD.</div>
+        <div id="mobile-error" class="error">يرجى ملء جميع الحقول بشكل صحيح.</div>
+      </div>
+    </form>
   </div>
 
+  <!-- P2P -->
   <div class="section" id="p2p">
     <h2><i class="fas fa-handshake"></i> سوق P2P</h2>
-    <div class="form-box">
-      <input type="text" placeholder="اسمك الكامل" id="p2p-name" />
-      <select id="p2p-type">
-        <option>نوع العملية</option>
-        <option>شراء</option><option>بيع</option>
-      </select>
-      <select id="p2p-coin">
-        <option>العملة</option>
-        <option>USDT</option><option>BTC</option><option>ETH</option>
-      </select>
-      <input type="number" placeholder="المبلغ" id="p2p-amount" />
-      <select id="p2p-currency">
-        <option>عملة المبلغ</option>
-        <option>MAD</option><option>USD</option>
-      </select>
-      <input type="text" placeholder="وسيلة التواصل" id="p2p-contact" />
-      <button onclick="sendP2PToWhatsapp()">ابدأ الصفقة</button>
-    </div>
+    <form class="form-box" onsubmit="sendP2PToWhatsapp(event)" novalidate>
+      <div class="row">
+        <input id="p2p-name" placeholder="اسمك الكامل" autocomplete="name" required />
+        <select id="p2p-type" required>
+          <option value="" selected disabled>نوع العملية</option>
+          <option>شراء</option><option>بيع</option>
+        </select>
+        <select id="p2p-coin" required>
+          <option value="" selected disabled>العملة</option>
+          <option>USDT</option><option>BTC</option><option>ETH</option>
+        </select>
+        <div>
+          <input id="p2p-amount" type="number" inputmode="decimal" min="1" step="0.01" placeholder="المبلغ" required />
+        </div>
+        <select id="p2p-currency" required>
+          <option value="" selected disabled>عملة المبلغ</option>
+          <option>MAD</option><option>USD</option>
+        </select>
+        <input id="p2p-contact" placeholder="وسيلة التواصل (واتساب/تلغرام/بريد)" required />
+        <!-- honeypot -->
+        <input type="text" id="hp6" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button id="p2p-btn" type="submit">ابدأ الصفقة</button>
+        <div id="p2p-error" class="error">يرجى ملء جميع الحقول بشكل صحيح.</div>
+      </div>
+    </form>
   </div>
 
+  <!-- ABOUT -->
   <div class="section" id="about">
     <h2><i class="fas fa-info-circle"></i> من نحن</h2>
     <div style="max-width: 600px; margin: auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); line-height: 1.8;">
@@ -393,123 +320,143 @@
         <li>دعم لجميع العملات والمنصات والبنوك</li>
       </ul>
       <div style="margin-top: 20px; text-align: center;">
-        <a href="https://wa.me/212713041921" style="background: #25D366; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+        <a href="https://wa.me/212713041921" target="_blank" rel="noopener" style="background:#25D366;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold">
           راسلنا على واتساب
         </a>
       </div>
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer id="offers">
     <p>جميع الحقوق محفوظة ©️ maroki.crypto 2025</p>
     <p>
-      <a href="https://wa.me/212713041921"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.instagram.com/ayoube_betting"><i class="fab fa-instagram"></i></a>
-      <a href="https://t.me/groupayoub"><i class="fab fa-telegram"></i></a>
+      <a href="https://wa.me/212713041921" target="_blank" rel="noopener" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/ayoube_betting" target="_blank" rel="noopener" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+      <a href="https://t.me/groupayoub" target="_blank" rel="noopener" aria-label="تلغرام"><i class="fab fa-telegram"></i></a>
     </p>
   </footer>
 
   <script>
-    async function fetchPrices() {
-      try {
+    // ================== Helpers ==================
+    const WA_NUMBER = "212713041921";
+    const qs = (sel)=>document.querySelector(sel);
+    const byId = (id)=>document.getElementById(id);
+
+    function showToast(){
+      try{ byId("confirmation-sound").play(); }catch(e){}
+      const el = byId("confirmation-message");
+      el.style.display = "block";
+      setTimeout(()=> el.style.display = "none", 4000);
+    }
+    function openWhatsAppMessage(msg, btn){
+      const encoded = encodeURIComponent(msg);
+      if(btn){ btn.classList.add("btn--loading"); }
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encoded}`,"_blank","noopener");
+      setTimeout(()=>{ if(btn){ btn.classList.remove("btn--loading"); } },800);
+      showToast();
+    }
+    function anyEmpty(arr){
+      return arr.some(v => !v || String(v).trim()==="" || v===null);
+    }
+    function isBotTriggered(hpId){
+      const hp = byId(hpId);
+      return hp && hp.value && hp.value.trim()!==""; // إذا ممتلئ = بوت
+    }
+    function guardInvalid(form, errorBoxId, ...values){
+      const err = byId(errorBoxId);
+      const invalid = anyEmpty(values);
+      if(invalid){ err && err.classList.add("show"); }
+      else { err && err.classList.remove("show"); }
+      if(invalid) form.reportValidity?.();
+      return invalid;
+    }
+    async function fetchPrices(){
+      const el = byId("live-prices");
+      try{
         const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=tether,bitcoin,ethereum&vs_currencies=mad");
+        if(!res.ok) throw new Error("bad");
         const data = await res.json();
-        const usdt = data.tether.mad.toFixed(2);
-        const btc = data.bitcoin.mad.toLocaleString();
-        const eth = data.ethereum.mad.toLocaleString();
-        document.getElementById("live-prices").innerHTML =
-          `💰 أسعار حية: <span style="color:#fff200">USDT:</span> ${usdt} MAD | <span style="color:#fff200">BTC:</span> ${btc} MAD | <span style="color:#fff200">ETH:</span> ${eth} MAD`;
-      } catch {
-        document.getElementById("live-prices").innerText = "❌ فشل تحميل الأسعار.";
+        const usdt = Number(data?.tether?.mad ?? 0).toFixed(2);
+        const btc = Number(data?.bitcoin?.mad ?? 0).toLocaleString();
+        const eth = Number(data?.ethereum?.mad ?? 0).toLocaleString();
+        el.innerHTML = `💰 أسعار حية: <span style="color:#fff200">USDT:</span> ${usdt} MAD | <span style="color:#fff200">BTC:</span> ${btc} MAD | <span style="color:#fff200">ETH:</span> ${eth} MAD`;
+      }catch{
+        el.textContent = "❌ فشل تحميل الأسعار.";
       }
     }
+    fetchPrices(); setInterval(fetchPrices, 30000);
 
-    function openWhatsAppMessage(msg) {
-      const encoded = encodeURIComponent(msg);
-      window.open(`https://wa.me/212713041921?text=${encoded}`, "_blank");
-      document.getElementById("confirmation-sound").play();
-      const el = document.getElementById("confirmation-message");
-      el.style.display = "block";
-      setTimeout(() => el.style.display = "none", 4000);
+    // ================== CRYPTO ==================
+    function sendCryptoToWhatsapp(e){
+      e.preventDefault();
+      if(isBotTriggered("hp1")) return;
+      const n=byId("crypto-name").value,t=byId("crypto-type").value,c=byId("crypto-currency").value;
+      const a=byId("crypto-amount").value,ac=byId("crypto-amount-currency").value,w=byId("crypto-wallet").value;
+      const btn=byId("crypto-btn");
+      if(guardInvalid(e.target,"crypto-error",n,t,c,a,ac,w)) return;
+      const msg=`💰 *طلب من ${n}*\n- النوع: ${t}\n- العملة: ${c}\n- المبلغ: ${a} ${ac}\n- المحفظة: ${w}`;
+      openWhatsAppMessage(msg, btn);
     }
 
-    function isEmpty(...fields) {
-      return fields.some(f => !f || f.trim() === "");
+    // ================== BETS ==================
+    function sendBetsToWhatsapp(e){
+      e.preventDefault();
+      if(isBotTriggered("hp2")) return;
+      const n=byId("bets-name").value,t=byId("bets-type").value,p=byId("bets-platform").value;
+      const a=byId("bets-amount").value,c=byId("bets-currency").value,id=byId("bets-id").value;
+      const btn=byId("bets-btn");
+      if(guardInvalid(e.target,"bets-error",n,t,p,a,c,id)) return;
+      const msg=`🎲 *طلب مراهنات من ${n}*\n- النوع: ${t}\n- المنصة: ${p}\n- المبلغ: ${a} ${c}\n- ID: ${id}`;
+      openWhatsAppMessage(msg, btn);
     }
 
-    function sendCryptoToWhatsapp() {
-      const n = document.getElementById("crypto-name").value;
-      const t = document.getElementById("crypto-type").value;
-      const c = document.getElementById("crypto-currency").value;
-      const a = document.getElementById("crypto-amount").value;
-      const ac = document.getElementById("crypto-amount-currency").value;
-      const w = document.getElementById("crypto-wallet").value;
-      if (isEmpty(n, t, c, a, ac, w)) return alert("يرجى ملء جميع الحقول!");
-      const msg = `💰 *طلب من ${n}*\n- النوع: ${t}\n- العملة: ${c}\n- المبلغ: ${a} ${ac}\n- المحفظة: ${w}`;
-      openWhatsAppMessage(msg);
+    // ================== BANKS ==================
+    function sendBanksToWhatsapp(e){
+      e.preventDefault();
+      if(isBotTriggered("hp3")) return;
+      const n=byId("bank-name").value,t=byId("bank-type").value,s=byId("bank-service").value;
+      const a=byId("bank-amount").value,c=byId("bank-currency").value,acc=byId("bank-account").value;
+      const btn=byId("banks-btn");
+      if(guardInvalid(e.target,"banks-error",n,t,s,a,c,acc)) return;
+      const msg=`🏦 *طلب تحويل من ${n}*\n- النوع: ${t}\n- الخدمة: ${s}\n- المبلغ: ${a} ${c}\n- الحساب: ${acc}`;
+      openWhatsAppMessage(msg, btn);
     }
 
-    function sendBetsToWhatsapp() {
-      const n = document.getElementById("bets-name").value;
-      const t = document.getElementById("bets-type").value;
-      const p = document.getElementById("bets-platform").value;
-      const a = document.getElementById("bets-amount").value;
-      const c = document.getElementById("bets-currency").value;
-      const id = document.getElementById("bets-id").value;
-      if (isEmpty(n, t, p, a, c, id)) return alert("يرجى ملء جميع الحقول!");
-      const msg = `🎲 *طلب مراهنات من ${n}*\n- النوع: ${t}\n- المنصة: ${p}\n- المبلغ: ${a} ${c}\n- ID: ${id}`;
-      openWhatsAppMessage(msg);
+    // ================== WALLETS ==================
+    function sendWalletToWhatsapp(e){
+      e.preventDefault();
+      if(isBotTriggered("hp4")) return;
+      const n=byId("wallet-name").value,t=byId("wallet-type").value,s=byId("wallet-service").value;
+      const a=byId("wallet-amount").value,c=byId("wallet-currency").value,acc=byId("wallet-account").value;
+      const btn=byId("wallet-btn");
+      if(guardInvalid(e.target,"wallets-error",n,t,s,a,c,acc)) return;
+      const msg=`🪙 *طلب محفظة رقمية من ${n}*\n- النوع: ${t}\n- المحفظة: ${s}\n- المبلغ: ${a} ${c}\n- الحساب: ${acc}`;
+      openWhatsAppMessage(msg, btn);
     }
 
-    function sendBanksToWhatsapp() {
-      const n = document.getElementById("bank-name").value;
-      const t = document.getElementById("bank-type").value;
-      const s = document.getElementById("bank-service").value;
-      const a = document.getElementById("bank-amount").value;
-      const c = document.getElementById("bank-currency").value;
-      const acc = document.getElementById("bank-account").value;
-      if (isEmpty(n, t, s, a, c, acc)) return alert("يرجى ملء جميع الحقول!");
-      const msg = `🏦 *طلب تحويل من ${n}*\n- النوع: ${t}\n- الخدمة: ${s}\n- المبلغ: ${a} ${c}\n- الحساب: ${acc}`;
-      openWhatsAppMessage(msg);
+    // ================== MOBILE ==================
+    function sendMobileToWhatsapp(e){
+      e.preventDefault();
+      if(isBotTriggered("hp5")) return;
+      const n=byId("mobile-name").value,o=byId("mobile-operator").value,num=byId("mobile-number").value,v=byId("mobile-value").value;
+      const btn=byId("mobile-btn");
+      if(guardInvalid(e.target,"mobile-error",n,o,num,v)) return;
+      const msg=`📱 *تعبئة هاتف من ${n}*\n- الشركة: ${o}\n- الرقم: ${num}\n- التعبئة: ${v} MAD`;
+      openWhatsAppMessage(msg, btn);
     }
 
-    function sendWalletToWhatsapp() {
-      const n = document.getElementById("wallet-name").value;
-      const t = document.getElementById("wallet-type").value;
-      const s = document.getElementById("wallet-service").value;
-      const a = document.getElementById("wallet-amount").value;
-      const c = document.getElementById("wallet-currency").value;
-      const acc = document.getElementById("wallet-account").value;
-      if (isEmpty(n, t, s, a, c, acc)) return alert("يرجى ملء جميع الحقول!");
-      const msg = `🪙 *طلب محفظة رقمية من ${n}*\n- النوع: ${t}\n- المحفظة: ${s}\n- المبلغ: ${a} ${c}\n- الحساب: ${acc}`;
-      openWhatsAppMessage(msg);
+    // ================== P2P ==================
+    function sendP2PToWhatsapp(e){
+      e.preventDefault();
+      if(isBotTriggered("hp6")) return;
+      const n=byId("p2p-name").value,t=byId("p2p-type").value,coin=byId("p2p-coin").value;
+      const a=byId("p2p-amount").value,c=byId("p2p-currency").value,con=byId("p2p-contact").value;
+      const btn=byId("p2p-btn");
+      if(guardInvalid(e.target,"p2p-error",n,t,coin,a,c,con)) return;
+      const msg=`🤝 *صفقة P2P من ${n}*\n- النوع: ${t}\n- العملة: ${coin}\n- المبلغ: ${a} ${c}\n- التواصل: ${con}`;
+      openWhatsAppMessage(msg, btn);
     }
-
-    function sendMobileToWhatsapp() {
-      const n = document.getElementById("mobile-name").value;
-      const o = document.getElementById("mobile-operator").value;
-      const num = document.getElementById("mobile-number").value;
-      const v = document.getElementById("mobile-value").value;
-      if (isEmpty(n, o, num, v)) return alert("يرجى ملء جميع الحقول!");
-      const msg = `📱 *تعبئة هاتف من ${n}*\n- الشركة: ${o}\n- الرقم: ${num}\n- التعبئة: ${v} MAD`;
-      openWhatsAppMessage(msg);
-    }
-
-    function sendP2PToWhatsapp() {
-      const n = document.getElementById("p2p-name").value;
-      const t = document.getElementById("p2p-type").value;
-      const coin = document.getElementById("p2p-coin").value;
-      const a = document.getElementById("p2p-amount").value;
-      const c = document.getElementById("p2p-currency").value;
-      const con = document.getElementById("p2p-contact").value;
-      if (isEmpty(n, t, coin, a, c, con)) return alert("يرجى ملء جميع الحقول!");
-      const msg = `🤝 *صفقة P2P من ${n}*\n- النوع: ${t}\n- العملة: ${coin}\n- المبلغ: ${a} ${c}\n- التواصل: ${con}`;
-      openWhatsAppMessage(msg);
-    }
-
-    fetchPrices();
-    setInterval(fetchPrices, 30000);
   </script>
 </body>
 </html>
-
