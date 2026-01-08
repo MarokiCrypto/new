@@ -1,884 +1,236 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>maroki.crypto - منصة موحدة</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-  <style>
-    :root{
-      /* لوحة ألوان متدرجة */
-      --ig1:#f58529; --ig2:#dd2a7b; --ig3:#8134af; --ig4:#515bd4;
-      --text:#f7f9fc; --muted:#d3d9e3; --border:#2a2e45;
-      --card-2:#15182a; --radius:14px; --shadow:0 12px 30px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
-      font-family:"Tajawal",system-ui,Segoe UI,Arial,sans-serif;color:var(--text);
-      background: linear-gradient(135deg, var(--ig1), var(--ig2), var(--ig3), var(--ig4));
-      background-size: 400% 400%; animation: bgMove 18s ease infinite;
-    }
-    @keyframes bgMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-    .page{min-height:100svh;background:linear-gradient(180deg, rgba(7,9,16,.65), rgba(7,9,16,.78))}
-    .container{max-width:1100px;margin:auto;padding:0 12px}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Betting Charge | VIP Gold</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    /* Header */
-    header{position:relative;padding:34px 16px 26px;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(2px)}
-    .brand{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    .brand-title{font-weight:800;letter-spacing:.4px;font-size:26px}
-    .brand-badges{display:flex;gap:8px;flex-wrap:wrap}
-    .badge{font-size:12px;color:var(--text);border:1px solid rgba(255,255,255,.15);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08)}
-    .hero{margin-top:16px;display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
-    @media (max-width:900px){.hero{grid-template-columns:1fr}}
-    .panel{border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);padding:16px;box-shadow:var(--shadow)}
-    .panel h1{margin:0 0 8px;font-size:28px}
-    .panel p{margin:6px 0;color:var(--muted)}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .chip{border:1px dashed rgba(255,255,255,.25);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:12px}
-    .btn{appearance:none;border:0;cursor:pointer;border-radius:12px;padding:12px 16px;font-weight:800}
-    .btn--whatsapp{color:#061019;background:#fff}
-    .btn--ghost{color:var(--text);background:transparent;border:1px solid rgba(255,255,255,.22)}
-    .hero-cta{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+<style>
+:root {
+  --primary: #ffcc00; 
+  --usdt-color: #26a17b; /* لون الـ USDT الأصلي */
+  --dark-bg: #0a0a0a;
+  --card-bg: #161616;
+  --input-bg: #1f1f1f;
+  --text-gray: #a0a0a0;
+}
 
-    /* Tabs */
-    .tabs{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg, rgba(15,17,29,.86), rgba(15,17,29,.78));backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08)}
-    .tabs .wrap{max-width:1100px;margin:auto;display:flex;gap:10px;overflow:auto;padding:10px 8px}
-    .tabs a{color:#f1f1f1;text-decoration:none;font-weight:700;padding:10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.2);white-space:nowrap;display:inline-flex;gap:8px;align-items:center;transition:all .2s ease;background:rgba(255,255,255,.06)}
-    .tabs a:hover{filter:brightness(1.05)}
-    .tabs a.active{color:#0b0f14;border-color:transparent;background:linear-gradient(90deg,var(--ig1),var(--ig2),var(--ig3),var(--ig4))}
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background: var(--dark-bg);
+  color: #ffffff;
+}
 
-    /* Prices bar */
-    #live-prices{text-align:center;padding:12px 10px;font-weight:800;color:#0b0f14;background:linear-gradient(90deg, rgba(245,133,41,.9), rgba(221,42,123,.9), rgba(129,52,175,.9), rgba(81,91,212,.9));border-bottom:1px solid rgba(0,0,0,.2)}
+.status-bar {
+    background: #ffcc0015;
+    color: var(--primary);
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #ffcc0033;
+}
 
-    /* Sections */
-    section{padding:34px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-    h2.section-title{margin:0 0 16px;font-size:20px;font-weight:800;display:flex;gap:10px;align-items:center}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media (max-width:820px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card-2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
-    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .form .full{grid-column:1/-1}
-    @media (max-width:680px){.form{grid-template-columns:1fr}}
+header {
+  padding: 40px 20px;
+  text-align: center;
+}
 
-    input,select,button{border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(11,13,22,.6);color:var(--text);padding:12px;font-size:15px;outline:none;transition:border-color .15s, box-shadow .15s}
-    input:focus,select:focus{border-color:#ffffff80;box-shadow:0 0 0 3px rgba(255,255,255,.15)}
+header h1 {
+  font-weight: 900;
+  font-size: 38px;
+  color: var(--primary);
+  margin: 0;
+}
 
-    .submit{color:#0b0f14;border:0;font-weight:900;cursor:pointer;background:linear-gradient(90deg,var(--ig1),var(--ig2),var(--ig3),var(--ig4))}
-    .submit:hover{filter:brightness(1.05)}
-    .submit:active{transform:translateY(1px)}
-    .submit.btn--loading{position:relative;opacity:.9;pointer-events:none}
-    .submit.btn--loading::after{content:"";position:absolute;inset:auto 50% 50% auto;transform:translate(50%,-50%);width:18px;height:18px;border:2px solid #0b0f14;border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
-    @keyframes spin{to{transform:translate(50%,-50%) rotate(360deg)}}
+.container { max-width: 1000px; margin: auto; padding: 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; }
 
-    .hint{font-size:12px;color:#e9e9e9;margin-top:-6px;opacity:.8}
-    .error{color:#ef4444;font-size:13px;display:none;margin-top:-4px}
-    .show{display:block}
+.section {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 25px;
+  border: 1px solid #222;
+}
 
-    /* Footer */
-    footer{padding:28px 0;text-align:center}
-    footer .links a{color:#fff;margin:0 8px;text-decoration:none;font-weight:700}
-    footer .links a:hover{text-decoration:underline}
+.section h3 { color: var(--primary); margin-bottom: 20px; font-size: 18px; }
 
-    .toast{display:none;position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#0f1424;border:1px solid #2b3752;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);z-index:9999;color:#fff}
-  </style>
+/* شبكة المنصات المحدثة */
+.companies {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.company {
+  background: var(--input-bg);
+  border-radius: 16px;
+  padding: 15px 5px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
+.company.active { border-color: var(--primary); background: #252525; }
+.company i { font-size: 24px; color: var(--text-gray); margin-bottom: 8px; }
+.company.active i, .company.active span { color: var(--primary); }
+
+/* تمييز أيقونة USDT */
+.company[data-name="USDT"].active { border-color: var(--usdt-color); }
+.company[data-name="USDT"].active i { color: var(--usdt-color); }
+
+input, select {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  background: var(--input-bg);
+  color: white;
+  box-sizing: border-box;
+  font-family: 'Cairo';
+}
+
+button {
+  width: 100%;
+  background: var(--primary);
+  color: #000;
+  border: none;
+  padding: 18px;
+  border-radius: 14px;
+  font-weight: 900;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#order-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #fff;
+    color: #000;
+    padding: 12px 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateX(-150%);
+    transition: 0.6s;
+}
+
+@media (max-width: 850px) {
+    .container { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
-<div class="page">
 
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <div class="brand">
-        <div>
-          <div class="brand-title">maroki.crypto</div>
-          <div class="brand-badges">
-            <span class="badge"><i class="fa-regular fa-circle-check"></i> خدمة سريعة</span>
-            <span class="badge"><i class="fa-solid fa-shield"></i> أمان مُحسَّن</span>
-            <span class="badge"><i class="fa-regular fa-star"></i> +2000 عميل</span>
-          </div>
-        </div>
-        <div class="hero-cta">
-          <a class="btn btn--whatsapp" href="https://wa.me/212713041921" target="_blank" rel="noopener">تواصل عبر واتساب</a>
-          <a class="btn btn--ghost" href="#about">عن المنصة</a>
-        </div>
+<div class="status-bar">الخدمة متوفرة | شحن تلقائي لجميع المنصات و USDT</div>
+
+<header>
+  <h1>BEST CHARGE VIP</h1>
+  <p>شحن آمن وفوري 24/7</p>
+</header>
+
+<div class="container">
+  
+  <div class="section">
+    <h3><i class="fas fa-th-large"></i> اختر المنصة أو العملة</h3>
+    <div class="companies">
+      <div class="company active" data-name="1xBet"><i class="fas fa-dice"></i><br><span>1xBet</span></div>
+      <div class="company" data-name="Melbet"><i class="fas fa-trophy"></i><br><span>Melbet</span></div>
+      <div class="company" data-name="Bet365"><i class="fas fa-futbol"></i><br><span>Bet365</span></div>
+      <div class="company" data-name="Linebet"><i class="fas fa-chart-line"></i><br><span>Linebet</span></div>
+      <div class="company" data-name="Mostbet"><i class="fas fa-fire"></i><br><span>Mostbet</span></div>
+      <div class="company" data-name="22Bet"><i class="fas fa-medal"></i><br><span>22Bet</span></div>
+      <div class="company" data-name="Betwinner"><i class="fas fa-crown"></i><br><span>Betwinner</span></div>
+      <div class="company" data-name="Megapari"><i class="fas fa-coins"></i><br><span>Megapari</span></div>
+      <div class="company" data-name="USDT" style="background: #26a17b20;">
+        <i class="fas fa-dollar-sign" style="color:#26a17b"></i><br><span style="color:#26a17b">Tether USDT</span>
       </div>
-
-      <div class="hero">
-        <div class="panel">
-          <h1>منصة موحّدة للشحن والسحب والتحويلات</h1>
-          <p>
-            واجهة حديثة ومتناسقة الألوان تمنحك تجربة سريعة وخفيفة على كل الأجهزة.
-            نوفر لك في مكان واحد شحن وسحب العملات الرقمية، التحويلات البنكية،
-            المحافظ الإلكترونية، تعبئة الهواتف، وصفقات P2P—مع دعم مباشر عبر واتساب
-            وتحديثات أسعار لحظية.
-          </p>
-          <div class="chips">
-            <span class="chip">Crypto</span>
-            <span class="chip">Banks & Brokers</span>
-            <span class="chip">Wallets</span>
-            <span class="chip">Mobile</span>
-            <span class="chip">P2P</span>
-          </div>
-        </div>
-        <div class="panel" style="display:flex;align-items:center;gap:12px">
-          <i class="fa-solid fa-sparkles" style="font-size:26px;color:#fff"></i>
-          <div>
-            <div style="font-weight:800">سهولة • سرعة • أناقة</div>
-            <div class="hint">تدرجات ناعمة • بطاقات داكنة مريحة • خطوط واضحة</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- TABS (نفس الاختيارات) -->
-  <div class="tabs">
-    <div class="wrap">
-      <a class="active" href="#crypto" aria-label="العملات"><i class="fa-solid fa-coins"></i></a>
-      <a href="#bets" aria-label="المراهنات"><i class="fa-solid fa-dice"></i></a>
-      <a href="#banks" aria-label="البنوك"><i class="fa-solid fa-university"></i></a>
-      <a href="#wallets" aria-label="المحافظ"><i class="fa-solid fa-wallet"></i></a>
-      <a href="#mobile" aria-label="تعبئة"><i class="fa-solid fa-mobile-screen"></i></a>
-      <a href="#p2p" aria-label="P2P"><i class="fa-solid fa-handshake"></i></a>
-      <a href="#about" aria-label="من نحن"><i class="fa-solid fa-info"></i></a>
     </div>
   </div>
 
-  <!-- PRICES -->
-  <div id="live-prices" role="status" aria-live="polite">⏳ تحميل الأسعار...</div>
+  <div class="section">
+    <h3><i class="fas fa-file-invoice-dollar"></i> تفاصيل الطلب</h3>
+    <form onsubmit="sendWhatsApp(); return false;">
+      <label id="idLabel">رقم الأيدي (ID):</label>
+      <input type="text" id="userId" placeholder="أدخل ID حسابك" required>
 
-  <main class="container">
+      <label>طريقة الدفع:</label>
+      <select id="paymentMethod">
+        <option>CIH Bank</option>
+        <option>Attijariwafa Bank</option>
+        <option>Cash Plus</option>
+        <option>Binance Pay</option>
+      </select>
 
-    <!-- CRYPTO -->
-    <section id="crypto">
-      <h2 class="section-title"><i class="fa-solid fa-coins"></i> العملات الرقمية</h2>
-      <div class="grid">
-        <div class="card">
-          <form class="form" onsubmit="sendCryptoToWhatsapp(event)" novalidate>
-            <input id="crypto-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-            <select id="crypto-type" required>
-              <option value="" disabled selected>نوع العملية</option>
-              <option>شحن</option><option>سحب</option><option>تبديل</option>
-            </select>
-            <select id="crypto-currency" required>
-              <option value="" disabled selected>العملة</option>
-              <option>USDT</option><option>BTC</option><option>ETH</option><option>BNB</option><option>TRX</option><option>XRP</option><option>DOGE</option>
-            </select>
-            <input id="crypto-amount" type="number" min="1" step="0.01" placeholder="المبلغ" required/>
-            <select id="crypto-amount-currency" required>
-              <option value="" disabled selected>عملة المبلغ</option>
-              <option>MAD</option><option>USD</option><option>EUR</option>
-            </select>
-            <input id="crypto-wallet" placeholder="عنوان المحفظة أو الحساب" class="full" required/>
-            <input id="hp1" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-            <button id="crypto-btn" class="submit full" type="submit">تنفيذ</button>
-            <div id="crypto-error" class="error full">يرجى ملء الحقول بشكل صحيح.</div>
-          </form>
-        </div>
-        <div class="card">
-          <div style="font-weight:800;margin-bottom:6px">ملاحظات</div>
-          <ul style="margin:0 0 8px 0;padding-right:18px;line-height:1.8">
-            <li>تحديث الأسعار كل 30 ثانية.</li>
-            <li>تحقق من الشبكة قبل الإرسال (TRC20 / ERC20).</li>
-          </ul>
-          <div class="hint">سيتم فتح واتساب مع تفاصيل الطلب.</div>
-        </div>
-      </div>
-    </section>
+      <label>المبلغ (بالدرهم أو بالدولار):</label>
+      <input type="number" id="amount" placeholder="المبلغ المراد شحنه" required>
 
-    <!-- BETS -->
-    <section id="bets">
-      <h2 class="section-title"><i class="fa-solid fa-dice"></i> مواقع المراهنات</h2>
-      <div class="card">
-        <form class="form" onsubmit="sendBetsToWhatsapp(event)" novalidate>
-          <input id="bets-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-          <select id="bets-type" required>
-            <option value="" disabled selected>نوع العملية</option>
-            <option>شحن</option><option>سحب</option>
-          </select>
-          <select id="bets-platform" required>
-            <option value="" disabled selected>المنصة</option>
-            <option>1xBet</option><option>Melbet</option><option>Bet365</option><option>Betway</option><option>Linbet</option><option>MegaPari</option><option>Goobet</option>
-          </select>
-          <input id="bets-amount" type="number" min="10" step="1" placeholder="المبلغ" required/>
-          <select id="bets-currency" required>
-            <option value="" disabled selected>عملة المبلغ</option>
-            <option>MAD</option><option>USD</option>
-          </select>
-          <input id="bets-id" placeholder="ID المنصة" class="full" required/>
-          <input id="hp2" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-          <button id="bets-btn" class="submit full" type="submit">تنفيذ</button>
-          <div id="bets-error" class="error full">أكمل كل الحقول.</div>
-        </form>
-      </div>
-    </section>
-
-    <!-- BANKS -->
-    <section id="banks">
-      <h2 class="section-title"><i class="fa-solid fa-university"></i> البنوك والوسطاء</h2>
-      <div class="card">
-        <form class="form" onsubmit="sendBanksToWhatsapp(event)" novalidate>
-          <input id="bank-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-          <select id="bank-type" required>
-            <option value="" disabled selected>نوع العملية</option>
-            <option>شحن</option><option>سحب</option>
-          </select>
-          <select id="bank-service" required>
-            <option value="" disabled selected>الخدمة</option>
-            <optgroup label="منصات تداول">
-              <option>Binance ⇄ CIH</option>
-              <option>Bybit ⇄ Attijari</option>
-            </optgroup>
-            <optgroup label="محافظ دولية">
-              <option>PayPal ⇄ CIH</option>
-              <option>Skrill ⇄ Attijari</option>
-              <option>Wise ⇄ CIH</option>
-            </optgroup>
-          </select>
-          <input id="bank-amount" type="number" min="1" step="0.01" placeholder="المبلغ" required/>
-          <select id="bank-currency" required>
-            <option value="" disabled selected>عملة المبلغ</option>
-            <option>MAD</option><option>USD</option><option>EUR</option>
-          </select>
-          <input id="bank-account" placeholder="البريد أو الحساب البنكي" class="full" required/>
-          <input id="hp3" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-          <button id="banks-btn" class="submit full" type="submit">ابدأ التحويل</button>
-          <div id="banks-error" class="error full">تأكد من صحة البيانات.</div>
-        </form>
-      </div>
-    </section>
-
-    <!-- WALLETS -->
-    <section id="wallets">
-      <h2 class="section-title"><i class="fa-solid fa-wallet"></i> المحافظ الرقمية</h2>
-      <div class="card">
-        <form class="form" onsubmit="sendWalletToWhatsapp(event)" novalidate>
-          <input id="wallet-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-          <select id="wallet-type" required>
-            <option value="" disabled selected>نوع العملية</option>
-            <option>شحن</option><option>سحب</option>
-          </select>
-          <select id="wallet-service" required>
-            <option value="" disabled selected>المحفظة</option>
-            <option>PayPal</option><option>Skrill</option><option>Neteller</option><option>Wise</option>
-          </select>
-          <input id="wallet-amount" type="number" min="1" step="0.01" placeholder="المبلغ" required/>
-          <select id="wallet-currency" required>
-            <option value="" disabled selected>عملة المبلغ</option>
-            <option>MAD</option><option>USD</option><option>EUR</option>
-          </select>
-          <input id="wallet-account" placeholder="البريد أو الحساب" class="full" required/>
-          <input id="hp4" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-          <button id="wallet-btn" class="submit full" type="submit">تنفيذ العملية</button>
-          <div id="wallets-error" class="error full">يرجى إكمال كل الحقول.</div>
-        </form>
-      </div>
-    </section>
-
-    <!-- MOBILE -->
-    <section id="mobile">
-      <h2 class="section-title"><i class="fa-solid fa-mobile-screen"></i> تعبئة الهاتف</h2>
-      <div class="card">
-        <form class="form" onsubmit="sendMobileToWhatsapp(event)" novalidate>
-          <input id="mobile-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-          <select id="mobile-operator" required>
-            <option value="" disabled selected>الشركة</option>
-            <option>Inwi</option><option>Orange</option><option>IAM</option>
-          </select>
-          <input id="mobile-number" type="tel" inputmode="numeric" pattern="[0-9]{9,12}" placeholder="رقم الهاتف" required/>
-          <input id="mobile-value" type="number" min="5" step="1" placeholder="قيمة التعبئة (MAD)" required/>
-          <input id="hp5" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-          <button id="mobile-btn" class="submit full" type="submit">شحن الرصيد</button>
-          <div class="hint full">الحد الأدنى 5 MAD • اكتب الرقم بدون فراغات.</div>
-          <div id="mobile-error" class="error full">تحقق من البيانات.</div>
-        </form>
-      </div>
-    </section>
-
-    <!-- P2P -->
-    <section id="p2p">
-      <h2 class="section-title"><i class="fa-solid fa-handshake"></i> سوق P2P</h2>
-      <div class="card">
-        <form class="form" onsubmit="sendP2PToWhatsapp(event)" novalidate>
-          <input id="p2p-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-          <select id="p2p-type" required>
-            <option value="" disabled selected>نوع العملية</option>
-            <option>شراء</option><option>بيع</option>
-          </select>
-          <select id="p2p-coin" required>
-            <option value="" disabled selected>العملة</option>
-            <option>USDT</option><option>BTC</option><option>ETH</option>
-          </select>
-          <input id="p2p-amount" type="number" min="1" step="0.01" placeholder="المبلغ" required/>
-          <select id="p2p-currency" required>
-            <option value="" disabled selected>عملة المبلغ</option>
-            <option>MAD</option><option>USD</option>
-          </select>
-          <input id="p2p-contact" placeholder="وسيلة التواصل (واتساب/تلغرام/بريد)" class="full" required/>
-          <input id="hp6" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-          <button id="p2p-btn" class="submit full" type="submit">ابدأ الصفقة</button>
-          <div id="p2p-error" class="error full">يرجى إكمال الحقول.</div>
-        </form>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <h2 class="section-title"><i class="fa-solid fa-circle-info"></i> من نحن</h2>
-      <div class="card">
-        <p><strong>maroki.crypto</strong> منصة موحّدة مغربية تُسهّل عمليات الشحن والسحب والتحويلات البنكية والرقمية بأعلى درجات البساطة والموثوقية. نركز على السرعة، ووضوح الرسوم، وخدمة عملاء مباشرة لتتبع طلباتك لحظة بلحظة.</p>
-        <ul style="margin:0;padding-right:18px;line-height:1.9">
-          <li>تنفيذ فوري وتأكيد عبر الرسائل.</li>
-          <li>دعم كامل للعملات والمنصات والبنوك الشريكة.</li>
-          <li>تحديث أسعار حيّة كل 30 ثانية.</li>
-        </ul>
-        <div style="margin-top:12px">
-          <a class="btn btn--whatsapp" href="https://wa.me/212713041921" target="_blank" rel="noopener">تواصل الآن</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="links" style="margin-bottom:8px">
-        <a href="https://wa.me/212713041921" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> واتساب</a>
-        <a href="https://www.instagram.com/ayoube_betting" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> إنستغرام</a>
-        <a href="https://t.me/groupayoub" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> تلغرام</a>
-      </div>
-      <div style="opacity:.9">© 2025 maroki.crypto</div>
-    </div>
-  </footer>
-
-  <div id="toast" class="toast">✅ تم فتح واتساب، أكمل الإرسال هناك.</div>
-  <audio id="confirmation-sound" src="https://www.myinstants.com/media/sounds/click.mp3" preload="auto"></audio>
-
-</div>
-
-<script>
-  const WA_NUMBER = "212713041921";
-  const $ = (s)=>document.querySelector(s);
-
-  function toast(){try{document.getElementById("confirmation-sound").play()}catch(e){} const t=document.getElementById("toast"); t.style.display="block"; setTimeout(()=>t.style.display="none",3000);}
-  function openWA(msg, btn){
-    const u = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-    if(btn){ btn.classList.add("btn--loading"); }
-    window.open(u,"_blank","noopener");
-    setTimeout(()=>{ if(btn){ btn.classList.remove("btn--loading"); } },800);
-    toast();
-  }
-  function empty(...v){return v.some(x=>!x || String(x).trim()==="")}
-  function guard(form, errId, ...vals){const invalid = empty(...vals); const box = document.getElementById(errId); if(box){ box.style.display = invalid ? "block":"none"; } if(invalid) form.reportValidity?.(); return invalid;}
-
-  async function fetchPrices(){
-    const el = document.getElementById("live-prices");
-    try{
-      const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=tether,bitcoin,ethereum&vs_currencies=mad");
-      if(!res.ok) throw new Error();
-      const data = await res.json();
-      const usdt = Number(data?.tether?.mad ?? 0).toFixed(2);
-      const btc  = Number(data?.bitcoin?.mad ?? 0).toLocaleString();
-      const eth  = Number(data?.ethereum?.mad ?? 0).toLocaleString();
-      el.innerHTML = `💰 أسعار حية: <b>USDT</b> ${usdt} MAD | <b>BTC</b> ${btc} MAD | <b>ETH</b> ${eth} MAD`;
-    }catch{ el.textContent = "❌ فشل تحميل الأسعار."; }
-  }
-  fetchPrices(); setInterval(fetchPrices, 30000);
-
-  function sendCryptoToWhatsapp(e){e.preventDefault(); if($("#hp1")?.value) return;
-    const n=$("#crypto-name").value,t=$("#crypto-type").value,c=$("#crypto-currency").value;
-    const a=$("#crypto-amount").value,ac=$("#crypto-amount-currency").value,w=$("#crypto-wallet").value;
-    if(guard(e.target,"crypto-error",n,t,c,a,ac,w)) return;
-    openWA(`💰 *طلب من ${n}*\n- النوع: ${t}\n- العملة: ${c}\n- المبلغ: ${a} ${ac}\n- المحفظة: ${w}`,$("#crypto-btn"));
-  }
-  function sendBetsToWhatsapp(e){e.preventDefault(); if($("#hp2")?.value) return;
-    const n=$("#bets-name").value,t=$("#bets-type").value,p=$("#bets-platform").value;
-    const a=$("#bets-amount").value,c=$("#bets-currency").value,id=$("#bets-id").value;
-    if(guard(e.target,"bets-error",n,t,p,a,c,id)) return;
-    openWA(`🎲 *طلب مراهنات من ${n}*\n- النوع: ${t}\n- المنصة: ${p}\n- المبلغ: ${a} ${c}\n- ID: ${id}`,$("#bets-btn"));
-  }
-  function sendBanksToWhatsapp(e){e.preventDefault(); if($("#hp3")?.value) return;
-    const n=$("#bank-name").value,t=$("#bank-type").value,s=$("#bank-service").value;
-    const a=$("#bank-amount").value,c=$("#bank-currency").value,acc=$("#bank-account").value;
-    if(guard(e.target,"banks-error",n,t,s,a,c,acc)) return;
-    openWA(`🏦 *طلب تحويل من ${n}*\n- النوع: ${t}\n- الخدمة: ${s}\n- المبلغ: ${a} ${c}\n- الحساب: ${acc}`,$("#banks-btn"));
-  }
-  function sendWalletToWhatsapp(e){e.preventDefault(); if($("#hp4")?.value) return;
-    const n=$("#wallet-name").value,t=$("#wallet-type").value,s=$("#wallet-service").value;
-    const a=$("#wallet-amount").value,c=$("#wallet-currency").value,acc=$("#wallet-account").value;
-    if(guard(e.target,"wallets-error",n,t,s,a,c,acc)) return;
-    openWA(`🪙 *طلب محفظة رقمية من ${n}*\n- النوع: ${t}\n- المحفظة: ${s}\n- المبلغ: ${a} ${c}\n- الحساب: ${acc}`,$("#wallet-btn"));
-  }
-  function sendMobileToWhatsapp(e){e.preventDefault(); if($("#hp5")?.value) return;
-    const n=$("#mobile-name").value,o=$("#mobile-operator").value,num=$("#mobile-number").value,v=$("#mobile-value").value;
-    if(guard(e.target,"mobile-error",n,o,num,v)) return;
-    openWA(`📱 *تعبئة هاتف من ${n}*\n- الشركة: ${o}\n- الرقم: ${num}\n- التعبئة: ${v} MAD`,$("#mobile-btn"));
-  }
-  function sendP2PToWhatsapp(e){e.preventDefault(); if($("#hp6")?.value) return;
-    const n=$("#p2p-name").value,t=$("#p2p-type").value,coin=$("#p2p-coin").value;
-    const a=$("#p2p-amount").value,c=$("#p2p-currency").value,con=$("#p2p-contact").value;
-    if(guard(e.target,"p2p-error",n,t,coin,a,c,con)) return;
-    openWA(`🤝 *صفقة P2P من ${n}*\n- النوع: ${t}\n- العملة: ${coin}\n- المبلغ: ${a} ${c}\n- التواصل: ${con}`,$("#p2p-btn"));
-  }
-
-  // Active tab on scroll
-  const tabs = document.querySelectorAll(".tabs a");
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){
-        tabs.forEach(a=>a.classList.remove("active"));
-        const t = document.querySelector(`.tabs a[href="#${en.target.id}"]`);
-        if(t) t.classList.add("active");
-      }
-    })
-  },{rootMargin:"-50% 0px -50% 0px",threshold:0});
-  ["crypto","bets","banks","wallets","mobile","p2p","about"].forEach(id=>{
-    const el=document.getElementById(id); if(el) obs.observe(el);
-  });
-</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <title>maroki.crypto - منصة موحدة</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-  <style>
-    :root{
-      /* لوحة ألوان متدرجة */
-      --ig1:#f58529; --ig2:#dd2a7b; --ig3:#8134af; --ig4:#515bd4;
-      --text:#f7f9fc; --muted:#d3d9e3; --border:#2a2e45;
-      --card-2:#15182a; --radius:14px; --shadow:0 12px 30px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
-      font-family:"Tajawal",system-ui,Segoe UI,Arial,sans-serif;color:var(--text);
-      background: linear-gradient(135deg, var(--ig1), var(--ig2), var(--ig3), var(--ig4));
-      background-size: 400% 400%; animation: bgMove 18s ease infinite;
-    }
-    @keyframes bgMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-    .page{min-height:100svh;background:linear-gradient(180deg, rgba(7,9,16,.65), rgba(7,9,16,.78))}
-    .container{max-width:1100px;margin:auto;padding:0 12px}
-
-    /* Header */
-    header{position:relative;padding:34px 16px 26px;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(2px)}
-    .brand{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    .brand-title{font-weight:800;letter-spacing:.4px;font-size:26px}
-    .brand-badges{display:flex;gap:8px;flex-wrap:wrap}
-    .badge{font-size:12px;color:var(--text);border:1px solid rgba(255,255,255,.15);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08)}
-    .hero{margin-top:16px;display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
-    @media (max-width:900px){.hero{grid-template-columns:1fr}}
-    .panel{border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);padding:16px;box-shadow:var(--shadow)}
-    .panel h1{margin:0 0 8px;font-size:28px}
-    .panel p{margin:6px 0;color:var(--muted)}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .chip{border:1px dashed rgba(255,255,255,.25);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:12px}
-    .btn{appearance:none;border:0;cursor:pointer;border-radius:12px;padding:12px 16px;font-weight:800}
-    .btn--whatsapp{color:#061019;background:#fff}
-    .btn--ghost{color:var(--text);background:transparent;border:1px solid rgba(255,255,255,.22)}
-    .hero-cta{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
-
-    /* Tabs */
-    .tabs{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg, rgba(15,17,29,.86), rgba(15,17,29,.78));backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08)}
-    .tabs .wrap{max-width:1100px;margin:auto;display:flex;gap:10px;overflow:auto;padding:10px 8px}
-    .tabs a{color:#f1f1f1;text-decoration:none;font-weight:700;padding:10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.2);white-space:nowrap;display:inline-flex;gap:8px;align-items:center;transition:all .2s ease;background:rgba(255,255,255,.06)}
-    .tabs a:hover{filter:brightness(1.05)}
-    .tabs a.active{color:#0b0f14;border-color:transparent;background:linear-gradient(90deg,var(--ig1),var(--ig2),var(--ig3),var(--ig4))}
-
-    /* Prices bar */
-    #live-prices{text-align:center;padding:12px 10px;font-weight:800;color:#0b0f14;background:linear-gradient(90deg, rgba(245,133,41,.9), rgba(221,42,123,.9), rgba(129,52,175,.9), rgba(81,91,212,.9));border-bottom:1px solid rgba(0,0,0,.2)}
-
-    /* Sections */
-    section{padding:34px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-    h2.section-title{margin:0 0 16px;font-size:20px;font-weight:800;display:flex;gap:10px;align-items:center}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media (max-width:820px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card-2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
-    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .form .full{grid-column:1/-1}
-    @media (max-width:680px){.form{grid-template-columns:1fr}}
-
-    input,select,button{border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(11,13,22,.6);color:var(--text);padding:12px;font-size:15px;outline:none;transition:border-color .15s, box-shadow .15s}
-    input:focus,select:focus{border-color:#ffffff80;box-shadow:0 0 0 3px rgba(255,255,255,.15)}
-
-    .submit{color:#0b0f14;border:0;font-weight:900;cursor:pointer;background:linear-gradient(90deg,var(--ig1),var(--ig2),var(--ig3),var(--ig4))}
-    .submit:hover{filter:brightness(1.05)}
-    .submit:active{transform:translateY(1px)}
-    .submit.btn--loading{position:relative;opacity:.9;pointer-events:none}
-    .submit.btn--loading::after{content:"";position:absolute;inset:auto 50% 50% auto;transform:translate(50%,-50%);width:18px;height:18px;border:2px solid #0b0f14;border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
-    @keyframes spin{to{transform:translate(50%,-50%) rotate(360deg)}}
-
-    .hint{font-size:12px;color:#e9e9e9;margin-top:-6px;opacity:.8}
-    .error{color:#ef4444;font-size:13px;display:none;margin-top:-4px}
-    .show{display:block}
-
-    /* Footer */
-    footer{padding:28px 0;text-align:center}
-    footer .links a{color:#fff;margin:0 8px;text-decoration:none;font-weight:700}
-    footer .links a:hover{text-decoration:underline}
-
-    .toast{display:none;position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#0f1424;border:1px solid #2b3752;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);z-index:9999;color:#fff}
-  </style>
-</head>
-<body>
-<div class="page">
-
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <div class="brand">
-        <div>
-          <div class="brand-title">maroki.crypto</div>
-          <div class="brand-badges">
-            <span class="badge"><i class="fa-regular fa-circle-check"></i> خدمة سريعة</span>
-            <span class="badge"><i class="fa-solid fa-shield"></i> أمان مُحسَّن</span>
-            <span class="badge"><i class="fa-regular fa-star"></i> +2000 عميل</span>
-          </div>
-        </div>
-        <div class="hero-cta">
-          <a class="btn btn--whatsapp" href="https://wa.me/212713041921" target="_blank" rel="noopener">تواصل عبر واتساب</a>
-          <a class="btn btn--ghost" href="#about">عن المنصة</a>
-        </div>
-      </div>
-
-      <div class="hero">
-        <div class="panel">
-          <h1>منصة موحّدة للشحن والسحب والتحويلات</h1>
-          <p>
-            واجهة حديثة ومتناسقة الألوان تمنحك تجربة سريعة وخفيفة على كل الأجهزة.
-            نوفر لك في مكان واحد شحن وسحب العملات الرقمية، التحويلات البنكية،
-            المحافظ الإلكترونية، تعبئة الهواتف، وصفقات P2P—مع دعم مباشر عبر واتساب
-            وتحديثات أسعار لحظية.
-          </p>
-          <div class="chips">
-            <span class="chip">Crypto</span>
-            <span class="chip">Banks & Brokers</span>
-            <span class="chip">Wallets</span>
-            <span class="chip">Mobile</span>
-            <span class="chip">P2P</span>
-          </div>
-        </div>
-        <div class="panel" style="display:flex;align-items:center;gap:12px">
-          <i class="fa-solid fa-sparkles" style="font-size:26px;color:#fff"></i>
-          <div>
-            <div style="font-weight:800">سهولة • سرعة • أناقة</div>
-            <div class="hint">تدرجات ناعمة • بطاقات داكنة مريحة • خطوط واضحة</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- TABS (نفس الاختيارات) -->
-  <div class="tabs">
-    <div class="wrap">
-      <a class="active" href="#crypto" aria-label="العملات"><i class="fa-solid fa-coins"></i></a>
-      <a href="#bets" aria-label="المراهنات"><i class="fa-solid fa-dice"></i></a>
-      <a href="#banks" aria-label="البنوك"><i class="fa-solid fa-university"></i></a>
-      <a href="#wallets" aria-label="المحافظ"><i class="fa-solid fa-wallet"></i></a>
-      <a href="#mobile" aria-label="تعبئة"><i class="fa-solid fa-mobile-screen"></i></a>
-      <a href="#p2p" aria-label="P2P"><i class="fa-solid fa-handshake"></i></a>
-      <a href="#about" aria-label="من نحن"><i class="fa-solid fa-info"></i></a>
-    </div>
+      <button type="submit">
+        <i class="fab fa-whatsapp"></i> إتمام الشحن الآن
+      </button>
+    </form>
   </div>
 
-  <!-- PRICES -->
-  <div id="live-prices" role="status" aria-live="polite">⏳ تحميل الأسعار...</div>
+</div>
 
-  <main class="container">
-
-    <!-- CRYPTO -->
-    <section id="crypto">
-      <h2 class="section-title"><i class="fa-solid fa-coins"></i> العملات الرقمية</h2>
-      <div class="grid">
-        <div class="card">
-          <form class="form" onsubmit="sendCryptoToWhatsapp(event)" novalidate>
-            <input id="crypto-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-            <select id="crypto-type" required>
-              <option value="" disabled selected>نوع العملية</option>
-              <option>شحن</option><option>سحب</option><option>تبديل</option>
-            </select>
-            <select id="crypto-currency" required>
-              <option value="" disabled selected>العملة</option>
-              <option>USDT</option><option>BTC</option><option>ETH</option><option>BNB</option><option>TRX</option><option>XRP</option><option>DOGE</option>
-            </select>
-            <input id="crypto-amount" type="number" min="1" step="0.01" placeholder="المبلغ" required/>
-            <select id="crypto-amount-currency" required>
-              <option value="" disabled selected>عملة المبلغ</option>
-              <option>MAD</option><option>USD</option><option>EUR</option>
-            </select>
-            <input id="crypto-wallet" placeholder="عنوان المحفظة أو الحساب" class="full" required/>
-            <input id="hp1" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-            <button id="crypto-btn" class="submit full" type="submit">تنفيذ</button>
-            <div id="crypto-error" class="error full">يرجى ملء الحقول بشكل صحيح.</div>
-          </form>
-        </div>
-        <div class="card">
-          <div style="font-weight:800;margin-bottom:6px">ملاحظات</div>
-          <ul style="margin:0 0 8px 0;padding-right:18px;line-height:1.8">
-            <li>تحديث الأسعار كل 30 ثانية.</li>
-            <li>تحقق من الشبكة قبل الإرسال (TRC20 / ERC20).</li>
-          </ul>
-          <div class="hint">سيتم فتح واتساب مع تفاصيل الطلب.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BETS -->
-    <section id="bets">
-      <h2 class="section-title"><i class="fa-solid fa-dice"></i> مواقع المراهنات</h2>
-      <div class="card">
-        <form class="form" onsubmit="sendBetsToWhatsapp(event)" novalidate>
-          <input id="bets-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-          <select id="bets-type" required>
-            <option value="" disabled selected>نوع العملية</option>
-            <option>شحن</option><option>سحب</option>
-          </select>
-          <select id="bets-platform" required>
-            <option value="" disabled selected>المنصة</option>
-            <option>1xBet</option><option>Melbet</option><option>Bet365</option><option>Betway</option><option>Linbet</option><option>MegaPari</option><option>Goobet</option>
-          </select>
-          <input id="bets-amount" type="number" min="10" step="1" placeholder="المبلغ" required/>
-          <select id="bets-currency" required>
-            <option value="" disabled selected>عملة المبلغ</option>
-            <option>MAD</option><option>USD</option>
-          </select>
-          <input id="bets-id" placeholder="ID المنصة" class="full" required/>
-          <input id="hp2" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-          <button id="bets-btn" class="submit full" type="submit">تنفيذ</button>
-          <div id="bets-error" class="error full">أكمل كل الحقول.</div>
-        </form>
-      </div>
-    </section>
-
-    <!-- BANKS -->
-    <section id="banks">
-      <h2 class="section-title"><i class="fa-solid fa-university"></i> البنوك والوسطاء</h2>
-      <div class="card">
-        <form class="form" onsubmit="sendBanksToWhatsapp(event)" novalidate>
-          <input id="bank-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-          <select id="bank-type" required>
-            <option value="" disabled selected>نوع العملية</option>
-            <option>شحن</option><option>سحب</option>
-          </select>
-          <select id="bank-service" required>
-            <option value="" disabled selected>الخدمة</option>
-            <optgroup label="منصات تداول">
-              <option>Binance ⇄ CIH</option>
-              <option>Bybit ⇄ Attijari</option>
-            </optgroup>
-            <optgroup label="محافظ دولية">
-              <option>PayPal ⇄ CIH</option>
-              <option>Skrill ⇄ Attijari</option>
-              <option>Wise ⇄ CIH</option>
-            </optgroup>
-          </select>
-          <input id="bank-amount" type="number" min="1" step="0.01" placeholder="المبلغ" required/>
-          <select id="bank-currency" required>
-            <option value="" disabled selected>عملة المبلغ</option>
-            <option>MAD</option><option>USD</option><option>EUR</option>
-          </select>
-          <input id="bank-account" placeholder="البريد أو الحساب البنكي" class="full" required/>
-          <input id="hp3" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-          <button id="banks-btn" class="submit full" type="submit">ابدأ التحويل</button>
-          <div id="banks-error" class="error full">تأكد من صحة البيانات.</div>
-        </form>
-      </div>
-    </section>
-
-    <!-- WALLETS -->
-    <section id="wallets">
-      <h2 class="section-title"><i class="fa-solid fa-wallet"></i> المحافظ الرقمية</h2>
-      <div class="card">
-        <form class="form" onsubmit="sendWalletToWhatsapp(event)" novalidate>
-          <input id="wallet-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-          <select id="wallet-type" required>
-            <option value="" disabled selected>نوع العملية</option>
-            <option>شحن</option><option>سحب</option>
-          </select>
-          <select id="wallet-service" required>
-            <option value="" disabled selected>المحفظة</option>
-            <option>PayPal</option><option>Skrill</option><option>Neteller</option><option>Wise</option>
-          </select>
-          <input id="wallet-amount" type="number" min="1" step="0.01" placeholder="المبلغ" required/>
-          <select id="wallet-currency" required>
-            <option value="" disabled selected>عملة المبلغ</option>
-            <option>MAD</option><option>USD</option><option>EUR</option>
-          </select>
-          <input id="wallet-account" placeholder="البريد أو الحساب" class="full" required/>
-          <input id="hp4" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-          <button id="wallet-btn" class="submit full" type="submit">تنفيذ العملية</button>
-          <div id="wallets-error" class="error full">يرجى إكمال كل الحقول.</div>
-        </form>
-      </div>
-    </section>
-
-    <!-- MOBILE -->
-    <section id="mobile">
-      <h2 class="section-title"><i class="fa-solid fa-mobile-screen"></i> تعبئة الهاتف</h2>
-      <div class="card">
-        <form class="form" onsubmit="sendMobileToWhatsapp(event)" novalidate>
-          <input id="mobile-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-          <select id="mobile-operator" required>
-            <option value="" disabled selected>الشركة</option>
-            <option>Inwi</option><option>Orange</option><option>IAM</option>
-          </select>
-          <input id="mobile-number" type="tel" inputmode="numeric" pattern="[0-9]{9,12}" placeholder="رقم الهاتف" required/>
-          <input id="mobile-value" type="number" min="5" step="1" placeholder="قيمة التعبئة (MAD)" required/>
-          <input id="hp5" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-          <button id="mobile-btn" class="submit full" type="submit">شحن الرصيد</button>
-          <div class="hint full">الحد الأدنى 5 MAD • اكتب الرقم بدون فراغات.</div>
-          <div id="mobile-error" class="error full">تحقق من البيانات.</div>
-        </form>
-      </div>
-    </section>
-
-    <!-- P2P -->
-    <section id="p2p">
-      <h2 class="section-title"><i class="fa-solid fa-handshake"></i> سوق P2P</h2>
-      <div class="card">
-        <form class="form" onsubmit="sendP2PToWhatsapp(event)" novalidate>
-          <input id="p2p-name" placeholder="اسمك الكامل" autocomplete="name" class="full" required/>
-          <select id="p2p-type" required>
-            <option value="" disabled selected>نوع العملية</option>
-            <option>شراء</option><option>بيع</option>
-          </select>
-          <select id="p2p-coin" required>
-            <option value="" disabled selected>العملة</option>
-            <option>USDT</option><option>BTC</option><option>ETH</option>
-          </select>
-          <input id="p2p-amount" type="number" min="1" step="0.01" placeholder="المبلغ" required/>
-          <select id="p2p-currency" required>
-            <option value="" disabled selected>عملة المبلغ</option>
-            <option>MAD</option><option>USD</option>
-          </select>
-          <input id="p2p-contact" placeholder="وسيلة التواصل (واتساب/تلغرام/بريد)" class="full" required/>
-          <input id="hp6" class="full" type="text" style="position:absolute;left:-9999px" tabindex="-1" aria-hidden="true">
-          <button id="p2p-btn" class="submit full" type="submit">ابدأ الصفقة</button>
-          <div id="p2p-error" class="error full">يرجى إكمال الحقول.</div>
-        </form>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <h2 class="section-title"><i class="fa-solid fa-circle-info"></i> من نحن</h2>
-      <div class="card">
-        <p><strong>maroki.crypto</strong> منصة موحّدة مغربية تُسهّل عمليات الشحن والسحب والتحويلات البنكية والرقمية بأعلى درجات البساطة والموثوقية. نركز على السرعة، ووضوح الرسوم، وخدمة عملاء مباشرة لتتبع طلباتك لحظة بلحظة.</p>
-        <ul style="margin:0;padding-right:18px;line-height:1.9">
-          <li>تنفيذ فوري وتأكيد عبر الرسائل.</li>
-          <li>دعم كامل للعملات والمنصات والبنوك الشريكة.</li>
-          <li>تحديث أسعار حيّة كل 30 ثانية.</li>
-        </ul>
-        <div style="margin-top:12px">
-          <a class="btn btn--whatsapp" href="https://wa.me/212713041921" target="_blank" rel="noopener">تواصل الآن</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="links" style="margin-bottom:8px">
-        <a href="https://wa.me/212713041921" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> واتساب</a>
-        <a href="https://www.instagram.com/ayoube_betting" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> إنستغرام</a>
-        <a href="https://t.me/groupayoub" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> تلغرام</a>
-      </div>
-      <div style="opacity:.9">© 2025 maroki.crypto</div>
-    </div>
-  </footer>
-
-  <div id="toast" class="toast">✅ تم فتح واتساب، أكمل الإرسال هناك.</div>
-  <audio id="confirmation-sound" src="https://www.myinstants.com/media/sounds/click.mp3" preload="auto"></audio>
-
+<div id="order-toast">
+    <i class="fas fa-check-circle" style="color:#22c55e"></i>
+    <span id="toast-text"></span>
 </div>
 
 <script>
-  const WA_NUMBER = "212713041921";
-  const $ = (s)=>document.querySelector(s);
+let selectedCompany = "1xBet";
 
-  function toast(){try{document.getElementById("confirmation-sound").play()}catch(e){} const t=document.getElementById("toast"); t.style.display="block"; setTimeout(()=>t.style.display="none",3000);}
-  function openWA(msg, btn){
-    const u = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-    if(btn){ btn.classList.add("btn--loading"); }
-    window.open(u,"_blank","noopener");
-    setTimeout(()=>{ if(btn){ btn.classList.remove("btn--loading"); } },800);
-    toast();
-  }
-  function empty(...v){return v.some(x=>!x || String(x).trim()==="")}
-  function guard(form, errId, ...vals){const invalid = empty(...vals); const box = document.getElementById(errId); if(box){ box.style.display = invalid ? "block":"none"; } if(invalid) form.reportValidity?.(); return invalid;}
+document.querySelectorAll(".company").forEach(el => {
+  el.addEventListener("click", () => {
+    document.querySelectorAll(".company").forEach(c => c.classList.remove("active"));
+    el.classList.add("active");
+    selectedCompany = el.dataset.name;
 
-  async function fetchPrices(){
-    const el = document.getElementById("live-prices");
-    try{
-      const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=tether,bitcoin,ethereum&vs_currencies=mad");
-      if(!res.ok) throw new Error();
-      const data = await res.json();
-      const usdt = Number(data?.tether?.mad ?? 0).toFixed(2);
-      const btc  = Number(data?.bitcoin?.mad ?? 0).toLocaleString();
-      const eth  = Number(data?.ethereum?.mad ?? 0).toLocaleString();
-      el.innerHTML = `💰 أسعار حية: <b>USDT</b> ${usdt} MAD | <b>BTC</b> ${btc} MAD | <b>ETH</b> ${eth} MAD`;
-    }catch{ el.textContent = "❌ فشل تحميل الأسعار."; }
-  }
-  fetchPrices(); setInterval(fetchPrices, 30000);
-
-  function sendCryptoToWhatsapp(e){e.preventDefault(); if($("#hp1")?.value) return;
-    const n=$("#crypto-name").value,t=$("#crypto-type").value,c=$("#crypto-currency").value;
-    const a=$("#crypto-amount").value,ac=$("#crypto-amount-currency").value,w=$("#crypto-wallet").value;
-    if(guard(e.target,"crypto-error",n,t,c,a,ac,w)) return;
-    openWA(`💰 *طلب من ${n}*\n- النوع: ${t}\n- العملة: ${c}\n- المبلغ: ${a} ${ac}\n- المحفظة: ${w}`,$("#crypto-btn"));
-  }
-  function sendBetsToWhatsapp(e){e.preventDefault(); if($("#hp2")?.value) return;
-    const n=$("#bets-name").value,t=$("#bets-type").value,p=$("#bets-platform").value;
-    const a=$("#bets-amount").value,c=$("#bets-currency").value,id=$("#bets-id").value;
-    if(guard(e.target,"bets-error",n,t,p,a,c,id)) return;
-    openWA(`🎲 *طلب مراهنات من ${n}*\n- النوع: ${t}\n- المنصة: ${p}\n- المبلغ: ${a} ${c}\n- ID: ${id}`,$("#bets-btn"));
-  }
-  function sendBanksToWhatsapp(e){e.preventDefault(); if($("#hp3")?.value) return;
-    const n=$("#bank-name").value,t=$("#bank-type").value,s=$("#bank-service").value;
-    const a=$("#bank-amount").value,c=$("#bank-currency").value,acc=$("#bank-account").value;
-    if(guard(e.target,"banks-error",n,t,s,a,c,acc)) return;
-    openWA(`🏦 *طلب تحويل من ${n}*\n- النوع: ${t}\n- الخدمة: ${s}\n- المبلغ: ${a} ${c}\n- الحساب: ${acc}`,$("#banks-btn"));
-  }
-  function sendWalletToWhatsapp(e){e.preventDefault(); if($("#hp4")?.value) return;
-    const n=$("#wallet-name").value,t=$("#wallet-type").value,s=$("#wallet-service").value;
-    const a=$("#wallet-amount").value,c=$("#wallet-currency").value,acc=$("#wallet-account").value;
-    if(guard(e.target,"wallets-error",n,t,s,a,c,acc)) return;
-    openWA(`🪙 *طلب محفظة رقمية من ${n}*\n- النوع: ${t}\n- المحفظة: ${s}\n- المبلغ: ${a} ${c}\n- الحساب: ${acc}`,$("#wallet-btn"));
-  }
-  function sendMobileToWhatsapp(e){e.preventDefault(); if($("#hp5")?.value) return;
-    const n=$("#mobile-name").value,o=$("#mobile-operator").value,num=$("#mobile-number").value,v=$("#mobile-value").value;
-    if(guard(e.target,"mobile-error",n,o,num,v)) return;
-    openWA(`📱 *تعبئة هاتف من ${n}*\n- الشركة: ${o}\n- الرقم: ${num}\n- التعبئة: ${v} MAD`,$("#mobile-btn"));
-  }
-  function sendP2PToWhatsapp(e){e.preventDefault(); if($("#hp6")?.value) return;
-    const n=$("#p2p-name").value,t=$("#p2p-type").value,coin=$("#p2p-coin").value;
-    const a=$("#p2p-amount").value,c=$("#p2p-currency").value,con=$("#p2p-contact").value;
-    if(guard(e.target,"p2p-error",n,t,coin,a,c,con)) return;
-    openWA(`🤝 *صفقة P2P من ${n}*\n- النوع: ${t}\n- العملة: ${coin}\n- المبلغ: ${a} ${c}\n- التواصل: ${con}`,$("#p2p-btn"));
-  }
-
-  // Active tab on scroll
-  const tabs = document.querySelectorAll(".tabs a");
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){
-        tabs.forEach(a=>a.classList.remove("active"));
-        const t = document.querySelector(`.tabs a[href="#${en.target.id}"]`);
-        if(t) t.classList.add("active");
-      }
-    })
-  },{rootMargin:"-50% 0px -50% 0px",threshold:0});
-  ["crypto","bets","banks","wallets","mobile","p2p","about"].forEach(id=>{
-    const el=document.getElementById(id); if(el) obs.observe(el);
+    // تغيير المسميات إذا اختار USDT
+    const idLabel = document.getElementById("idLabel");
+    const idInput = document.getElementById("userId");
+    if(selectedCompany === "USDT") {
+        idLabel.innerText = "عنوان المحفظة (Wallet Address):";
+        idInput.placeholder = "أدخل عنوان TRC20 الخاص بك";
+    } else {
+        idLabel.innerText = "رقم الأيدي (ID):";
+        idInput.placeholder = "أدخل ID حسابك";
+    }
   });
+});
+
+function sendWhatsApp() {
+  const method = document.getElementById("paymentMethod").value;
+  const amount = document.getElementById("amount").value;
+  const id = document.getElementById("userId").value;
+  const phone = "212713041921";
+
+  const text = `*طلب شحن VIP جديد*%0A` +
+               `-------------------%0A` +
+               `🎯 الهدف: ${selectedCompany}%0A` +
+               `💰 المبلغ: ${amount}%0A` +
+               `💳 طريقة الدفع: ${method}%0A` +
+               `🆔 الحساب/المحفظة: ${id}%0A` +
+               `-------------------`;
+  
+  window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+}
+
+// إشعارات عشوائية
+const randomNotif = () => {
+    const names = ["ياسين", "عمر", "إسماعيل", "خالد"];
+    const toast = document.getElementById('order-toast');
+    document.getElementById('toast-text').innerText = `${names[Math.floor(Math.random()*names.length)]} شحن للتو عبر ${selectedCompany}`;
+    toast.style.transform = "translateX(0)";
+    setTimeout(() => toast.style.transform = "translateX(-150%)", 4000);
+}
+setInterval(randomNotif, 15000);
 </script>
+
 </body>
 </html>
